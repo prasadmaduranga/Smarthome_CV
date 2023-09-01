@@ -1,0 +1,273 @@
+[ Sun Aug  6 12:07:36 2023 ] using warm up, epoch: 0
+[ Sun Aug  6 12:07:36 2023 ] Parameters:
+{'work_dir': './work_dir/smarthome/xsub/agcn_joint', 'model_saved_name': './runs/smarthome_cs_agcn_joint', 'config': './config/smarthome/cross_subject/train_joint.yaml', 'phase': 'train', 'save_score': False, 'seed': 1, 'log_interval': 100, 'save_interval': 2, 'eval_interval': 5, 'print_log': True, 'show_topk': [1, 5], 'feeder': 'feeders.feeder.Feeder', 'num_worker': 32, 'train_feeder_args': {'data_path': './data/smarthome/xsub/train_data_joint.npy', 'label_path': './data/smarthome/xsub/train_label.pkl', 'debug': False, 'random_choose': False, 'random_shift': False, 'random_move': False, 'window_size': -1, 'normalization': False}, 'test_feeder_args': {'data_path': './data/smarthome/xsub/val_data_joint.npy', 'label_path': './data/smarthome/xsub/val_label.pkl'}, 'model': 'model.agcn.Model', 'model_args': {'num_class': 31, 'num_point': 15, 'num_person': 1, 'graph': 'graph.smarthome.Graph', 'graph_args': {'labeling_mode': 'spatial'}}, 'weights': None, 'ignore_weights': [], 'base_lr': 0.1, 'step': [30, 40], 'device': [0, 1, 2, 3], 'optimizer': 'SGD', 'nesterov': True, 'batch_size': 16, 'test_batch_size': 32, 'start_epoch': 0, 'num_epoch': 60, 'weight_decay': 0.0001, 'only_train_part': False, 'only_train_epoch': 0, 'warm_up_epoch': 0}
+
+[ Sun Aug  6 12:07:36 2023 ] Training epoch: 1
+[ Sun Aug  6 12:35:27 2023 ] using warm up, epoch: 0
+[ Sun Aug  6 12:35:27 2023 ] Parameters:
+{'work_dir': './work_dir/smarthome/xsub/agcn_joint', 'model_saved_name': './runs/smarthome_cs_agcn_joint', 'config': './config/smarthome/cross_subject/train_joint.yaml', 'phase': 'train', 'save_score': False, 'seed': 1, 'log_interval': 100, 'save_interval': 2, 'eval_interval': 5, 'print_log': True, 'show_topk': [1, 5], 'feeder': 'feeders.feeder.Feeder', 'num_worker': 32, 'train_feeder_args': {'data_path': './data/smarthome/xsub/train_data_joint.npy', 'label_path': './data/smarthome/xsub/train_label.pkl', 'debug': False, 'random_choose': False, 'random_shift': False, 'random_move': False, 'window_size': -1, 'normalization': False}, 'test_feeder_args': {'data_path': './data/smarthome/xsub/val_data_joint.npy', 'label_path': './data/smarthome/xsub/val_label.pkl'}, 'model': 'model.agcn.Model', 'model_args': {'num_class': 31, 'num_point': 15, 'num_person': 1, 'graph': 'graph.smarthome.Graph', 'graph_args': {'labeling_mode': 'spatial'}}, 'weights': None, 'ignore_weights': [], 'base_lr': 0.1, 'step': [30, 40], 'device': [0, 1, 2, 3], 'optimizer': 'SGD', 'nesterov': True, 'batch_size': 16, 'test_batch_size': 32, 'start_epoch': 0, 'num_epoch': 2, 'weight_decay': 0.0001, 'only_train_part': False, 'only_train_epoch': 0, 'warm_up_epoch': 0}
+
+[ Sun Aug  6 12:35:27 2023 ] Training epoch: 1
+[ Sun Aug  6 12:36:08 2023 ] 	Mean training loss: nan.
+[ Sun Aug  6 12:36:08 2023 ] 	Time consumption: [Data]33%, [Network]33%
+[ Sun Aug  6 12:36:08 2023 ] Eval epoch: 1
+[ Sun Aug  6 12:43:20 2023 ] using warm up, epoch: 0
+[ Sun Aug  6 12:43:20 2023 ] Parameters:
+{'work_dir': './work_dir/smarthome/xsub/agcn_joint', 'model_saved_name': './runs/smarthome_cs_agcn_joint', 'config': './config/smarthome/cross_subject/train_joint.yaml', 'phase': 'train', 'save_score': False, 'seed': 1, 'log_interval': 100, 'save_interval': 2, 'eval_interval': 5, 'print_log': True, 'show_topk': [1, 5], 'feeder': 'feeders.feeder.Feeder', 'num_worker': 32, 'train_feeder_args': {'data_path': './data/smarthome/xsub/train_data_joint.npy', 'label_path': './data/smarthome/xsub/train_label.pkl', 'debug': False, 'random_choose': False, 'random_shift': False, 'random_move': False, 'window_size': -1, 'normalization': False}, 'test_feeder_args': {'data_path': './data/smarthome/xsub/val_data_joint.npy', 'label_path': './data/smarthome/xsub/val_label.pkl'}, 'model': 'model.agcn.Model', 'model_args': {'num_class': 31, 'num_point': 15, 'num_person': 1, 'graph': 'graph.smarthome.Graph', 'graph_args': {'labeling_mode': 'spatial'}}, 'weights': None, 'ignore_weights': [], 'base_lr': 0.1, 'step': [30, 40], 'device': [0, 1, 2, 3], 'optimizer': 'SGD', 'nesterov': True, 'batch_size': 16, 'test_batch_size': 32, 'start_epoch': 0, 'num_epoch': 2, 'weight_decay': 0.0001, 'only_train_part': False, 'only_train_epoch': 0, 'warm_up_epoch': 0}
+
+[ Sun Aug  6 12:43:20 2023 ] Training epoch: 1
+[ Sun Aug  6 12:44:01 2023 ] 	Mean training loss: nan.
+[ Sun Aug  6 12:44:01 2023 ] 	Time consumption: [Data]33%, [Network]33%
+[ Sun Aug  6 12:44:01 2023 ] Eval epoch: 1
+[ Sun Aug  6 12:51:29 2023 ] using warm up, epoch: 0
+[ Sun Aug  6 12:51:29 2023 ] Parameters:
+{'work_dir': './work_dir/smarthome/xsub/agcn_joint', 'model_saved_name': './runs/smarthome_cs_agcn_joint', 'config': './config/smarthome/cross_subject/train_joint.yaml', 'phase': 'train', 'save_score': False, 'seed': 1, 'log_interval': 100, 'save_interval': 2, 'eval_interval': 5, 'print_log': True, 'show_topk': [1, 5], 'feeder': 'feeders.feeder.Feeder', 'num_worker': 32, 'train_feeder_args': {'data_path': './data/smarthome/xsub/train_data_joint.npy', 'label_path': './data/smarthome/xsub/train_label.pkl', 'debug': False, 'random_choose': False, 'random_shift': False, 'random_move': False, 'window_size': -1, 'normalization': False}, 'test_feeder_args': {'data_path': './data/smarthome/xsub/val_data_joint.npy', 'label_path': './data/smarthome/xsub/val_label.pkl'}, 'model': 'model.agcn.Model', 'model_args': {'num_class': 31, 'num_point': 15, 'num_person': 1, 'graph': 'graph.smarthome.Graph', 'graph_args': {'labeling_mode': 'spatial'}}, 'weights': None, 'ignore_weights': [], 'base_lr': 0.1, 'step': [30, 40], 'device': [0, 1, 2, 3], 'optimizer': 'SGD', 'nesterov': True, 'batch_size': 16, 'test_batch_size': 32, 'start_epoch': 0, 'num_epoch': 2, 'weight_decay': 0.0001, 'only_train_part': False, 'only_train_epoch': 0, 'warm_up_epoch': 0}
+
+[ Sun Aug  6 12:51:29 2023 ] Training epoch: 1
+[ Sun Aug  6 12:52:17 2023 ] 	Mean training loss: nan.
+[ Sun Aug  6 12:52:17 2023 ] 	Time consumption: [Data]33%, [Network]33%
+[ Sun Aug  6 12:52:17 2023 ] Eval epoch: 1
+[ Sun Aug  6 12:55:35 2023 ] using warm up, epoch: 0
+[ Sun Aug  6 12:55:35 2023 ] Parameters:
+{'work_dir': './work_dir/smarthome/xsub/agcn_joint', 'model_saved_name': './runs/smarthome_cs_agcn_joint', 'config': './config/smarthome/cross_subject/train_joint.yaml', 'phase': 'train', 'save_score': False, 'seed': 1, 'log_interval': 100, 'save_interval': 2, 'eval_interval': 5, 'print_log': True, 'show_topk': [1, 5], 'feeder': 'feeders.feeder.Feeder', 'num_worker': 32, 'train_feeder_args': {'data_path': './data/smarthome/xsub/train_data_joint.npy', 'label_path': './data/smarthome/xsub/train_label.pkl', 'debug': False, 'random_choose': False, 'random_shift': False, 'random_move': False, 'window_size': -1, 'normalization': False}, 'test_feeder_args': {'data_path': './data/smarthome/xsub/val_data_joint.npy', 'label_path': './data/smarthome/xsub/val_label.pkl'}, 'model': 'model.agcn.Model', 'model_args': {'num_class': 31, 'num_point': 15, 'num_person': 1, 'graph': 'graph.smarthome.Graph', 'graph_args': {'labeling_mode': 'spatial'}}, 'weights': None, 'ignore_weights': [], 'base_lr': 0.1, 'step': [30, 40], 'device': [0, 1, 2, 3], 'optimizer': 'SGD', 'nesterov': True, 'batch_size': 16, 'test_batch_size': 32, 'start_epoch': 0, 'num_epoch': 2, 'weight_decay': 0.0001, 'only_train_part': False, 'only_train_epoch': 0, 'warm_up_epoch': 0}
+
+[ Sun Aug  6 12:55:35 2023 ] Training epoch: 1
+[ Sun Aug  6 12:56:28 2023 ] 	Mean training loss: nan.
+[ Sun Aug  6 12:56:28 2023 ] 	Time consumption: [Data]33%, [Network]33%
+[ Sun Aug  6 12:56:28 2023 ] Eval epoch: 1
+[ Sun Aug  6 12:58:37 2023 ] using warm up, epoch: 0
+[ Sun Aug  6 12:58:37 2023 ] Parameters:
+{'work_dir': './work_dir/smarthome/xsub/agcn_joint', 'model_saved_name': './runs/smarthome_cs_agcn_joint', 'config': './config/smarthome/cross_subject/train_joint.yaml', 'phase': 'train', 'save_score': False, 'seed': 1, 'log_interval': 100, 'save_interval': 2, 'eval_interval': 5, 'print_log': True, 'show_topk': [1, 5], 'feeder': 'feeders.feeder.Feeder', 'num_worker': 32, 'train_feeder_args': {'data_path': './data/smarthome/xsub/train_data_joint.npy', 'label_path': './data/smarthome/xsub/train_label.pkl', 'debug': False, 'random_choose': False, 'random_shift': False, 'random_move': False, 'window_size': -1, 'normalization': False}, 'test_feeder_args': {'data_path': './data/smarthome/xsub/val_data_joint.npy', 'label_path': './data/smarthome/xsub/val_label.pkl'}, 'model': 'model.agcn.Model', 'model_args': {'num_class': 31, 'num_point': 15, 'num_person': 1, 'graph': 'graph.smarthome.Graph', 'graph_args': {'labeling_mode': 'spatial'}}, 'weights': None, 'ignore_weights': [], 'base_lr': 0.1, 'step': [30, 40], 'device': [0, 1, 2, 3], 'optimizer': 'SGD', 'nesterov': True, 'batch_size': 16, 'test_batch_size': 32, 'start_epoch': 0, 'num_epoch': 2, 'weight_decay': 0.0001, 'only_train_part': False, 'only_train_epoch': 0, 'warm_up_epoch': 0}
+
+[ Sun Aug  6 12:58:37 2023 ] Training epoch: 1
+[ Sun Aug  6 12:59:19 2023 ] 	Mean training loss: nan.
+[ Sun Aug  6 12:59:19 2023 ] 	Time consumption: [Data]33%, [Network]33%
+[ Sun Aug  6 12:59:19 2023 ] Eval epoch: 1
+[ Sun Aug  6 13:00:09 2023 ] 	Mean test loss of 1 batches: 4.089345455169678.
+[ Sun Aug  6 13:00:09 2023 ] 	Top1: 0.00%
+[ Sun Aug  6 13:00:09 2023 ] 	Top5: 0.00%
+[ Sun Aug  6 13:00:09 2023 ] Training epoch: 2
+[ Sun Aug  6 13:00:51 2023 ] 	Mean training loss: nan.
+[ Sun Aug  6 13:00:51 2023 ] 	Time consumption: [Data]33%, [Network]33%
+[ Sun Aug  6 13:00:51 2023 ] Eval epoch: 2
+[ Sun Aug  6 13:01:45 2023 ] 	Mean test loss of 1 batches: 4.089345455169678.
+[ Sun Aug  6 13:01:45 2023 ] 	Top1: 0.00%
+[ Sun Aug  6 13:01:45 2023 ] 	Top5: 0.00%
+[ Sun Aug  6 13:09:35 2023 ] using warm up, epoch: 0
+[ Sun Aug  6 13:09:35 2023 ] Parameters:
+{'work_dir': './work_dir/smarthome/xsub/agcn_joint', 'model_saved_name': './runs/smarthome_cs_agcn_joint', 'config': './config/smarthome/cross_subject/train_joint.yaml', 'phase': 'train', 'save_score': False, 'seed': 1, 'log_interval': 100, 'save_interval': 2, 'eval_interval': 5, 'print_log': True, 'show_topk': [1, 5], 'feeder': 'feeders.feeder.Feeder', 'num_worker': 32, 'train_feeder_args': {'data_path': './data/smarthome/xsub/train_data_joint.npy', 'label_path': './data/smarthome/xsub/train_label.pkl', 'debug': False, 'random_choose': False, 'random_shift': False, 'random_move': False, 'window_size': -1, 'normalization': False}, 'test_feeder_args': {'data_path': './data/smarthome/xsub/val_data_joint.npy', 'label_path': './data/smarthome/xsub/val_label.pkl'}, 'model': 'model.agcn.Model', 'model_args': {'num_class': 31, 'num_point': 15, 'num_person': 1, 'graph': 'graph.smarthome.Graph', 'graph_args': {'labeling_mode': 'spatial'}}, 'weights': None, 'ignore_weights': [], 'base_lr': 0.1, 'step': [30, 40], 'device': [0, 1, 2, 3], 'optimizer': 'SGD', 'nesterov': True, 'batch_size': 16, 'test_batch_size': 32, 'start_epoch': 0, 'num_epoch': 2, 'weight_decay': 0.0001, 'only_train_part': False, 'only_train_epoch': 0, 'warm_up_epoch': 0}
+
+[ Sun Aug  6 13:09:35 2023 ] Training epoch: 1
+[ Sun Aug  6 13:11:44 2023 ] 	Mean training loss: 9.4774.
+[ Sun Aug  6 13:11:44 2023 ] 	Time consumption: [Data]33%, [Network]67%
+[ Sun Aug  6 13:11:44 2023 ] Eval epoch: 1
+[ Sun Aug  6 13:12:40 2023 ] 	Mean test loss of 1 batches: 30356.958984375.
+[ Sun Aug  6 13:12:40 2023 ] 	Top1: 50.00%
+[ Sun Aug  6 13:12:40 2023 ] 	Top5: 50.00%
+[ Sun Aug  6 13:12:40 2023 ] Training epoch: 2
+[ Sun Aug  6 13:14:42 2023 ] 	Mean training loss: 0.9641.
+[ Sun Aug  6 13:14:42 2023 ] 	Time consumption: [Data]35%, [Network]65%
+[ Sun Aug  6 13:14:42 2023 ] Eval epoch: 2
+[ Sun Aug  6 13:15:40 2023 ] 	Mean test loss of 1 batches: 4296.92041015625.
+[ Sun Aug  6 13:15:40 2023 ] 	Top1: 50.00%
+[ Sun Aug  6 13:15:40 2023 ] 	Top5: 50.00%
+[ Sun Aug  6 13:28:02 2023 ] using warm up, epoch: 0
+[ Sun Aug  6 13:28:02 2023 ] Parameters:
+{'work_dir': './work_dir/smarthome/xsub/agcn_joint', 'model_saved_name': './runs/smarthome_cs_agcn_joint', 'config': './config/smarthome/cross_subject/train_joint.yaml', 'phase': 'train', 'save_score': False, 'seed': 1, 'log_interval': 100, 'save_interval': 2, 'eval_interval': 5, 'print_log': True, 'show_topk': [1, 5], 'feeder': 'feeders.feeder.Feeder', 'num_worker': 32, 'train_feeder_args': {'data_path': './data/smarthome/xsub/train_data_joint.npy', 'label_path': './data/smarthome/xsub/train_label.pkl', 'debug': False, 'random_choose': False, 'random_shift': False, 'random_move': False, 'window_size': -1, 'normalization': False}, 'test_feeder_args': {'data_path': './data/smarthome/xsub/val_data_joint.npy', 'label_path': './data/smarthome/xsub/val_label.pkl'}, 'model': 'model.agcn.Model', 'model_args': {'num_class': 31, 'num_point': 15, 'num_person': 1, 'graph': 'graph.smarthome.Graph', 'graph_args': {'labeling_mode': 'spatial'}}, 'weights': None, 'ignore_weights': [], 'base_lr': 0.1, 'step': [30, 40], 'device': [0, 1, 2, 3], 'optimizer': 'SGD', 'nesterov': True, 'batch_size': 16, 'test_batch_size': 32, 'start_epoch': 0, 'num_epoch': 10, 'weight_decay': 0.0001, 'only_train_part': False, 'only_train_epoch': 0, 'warm_up_epoch': 0}
+
+[ Sun Aug  6 13:28:02 2023 ] Training epoch: 1
+[ Sun Aug  6 15:00:50 2023 ] using warm up, epoch: 0
+[ Sun Aug  6 15:00:50 2023 ] Parameters:
+{'work_dir': './work_dir/smarthome/xsub/agcn_joint', 'model_saved_name': './runs/smarthome_cs_agcn_joint', 'config': './config/smarthome/cross_subject/train_joint.yaml', 'phase': 'train', 'save_score': False, 'seed': 1, 'log_interval': 100, 'save_interval': 2, 'eval_interval': 5, 'print_log': True, 'show_topk': [1, 5], 'feeder': 'feeders.feeder.Feeder', 'num_worker': 32, 'train_feeder_args': {'data_path': './data/smarthome/xsub/train_data_joint.npy', 'label_path': './data/smarthome/xsub/train_label.pkl', 'debug': False, 'random_choose': False, 'random_shift': False, 'random_move': False, 'window_size': -1, 'normalization': False}, 'test_feeder_args': {'data_path': './data/smarthome/xsub/val_data_joint.npy', 'label_path': './data/smarthome/xsub/val_label.pkl'}, 'model': 'model.agcn.Model', 'model_args': {'num_class': 31, 'num_point': 15, 'num_person': 1, 'graph': 'graph.smarthome.Graph', 'graph_args': {'labeling_mode': 'spatial'}}, 'weights': None, 'ignore_weights': [], 'base_lr': 0.1, 'step': [30, 40], 'device': [0, 1, 2, 3], 'optimizer': 'SGD', 'nesterov': True, 'batch_size': 16, 'test_batch_size': 32, 'start_epoch': 0, 'num_epoch': 10, 'weight_decay': 0.0001, 'only_train_part': False, 'only_train_epoch': 0, 'warm_up_epoch': 0}
+
+[ Sun Aug  6 15:00:50 2023 ] Training epoch: 1
+[ Sun Aug  6 15:13:14 2023 ] 	Mean training loss: 3.0135.
+[ Sun Aug  6 15:13:14 2023 ] 	Time consumption: [Data]07%, [Network]93%
+[ Sun Aug  6 15:13:14 2023 ] Eval epoch: 1
+[ Sun Aug  6 15:16:29 2023 ] 	Mean test loss of 3 batches: 1.9440551201502483.
+[ Sun Aug  6 15:16:29 2023 ] 	Top1: 69.79%
+[ Sun Aug  6 15:16:29 2023 ] 	Top5: 98.96%
+[ Sun Aug  6 15:16:29 2023 ] Training epoch: 2
+[ Sun Aug  6 15:28:40 2023 ] 	Mean training loss: 2.5043.
+[ Sun Aug  6 15:28:40 2023 ] 	Time consumption: [Data]08%, [Network]92%
+[ Sun Aug  6 15:28:40 2023 ] Eval epoch: 2
+[ Sun Aug  6 15:31:47 2023 ] 	Mean test loss of 3 batches: 1.4862866004308064.
+[ Sun Aug  6 15:31:47 2023 ] 	Top1: 13.54%
+[ Sun Aug  6 15:31:47 2023 ] 	Top5: 98.96%
+[ Sun Aug  6 15:31:47 2023 ] Training epoch: 3
+[ Sun Aug  6 15:44:08 2023 ] 	Mean training loss: 1.2607.
+[ Sun Aug  6 15:44:08 2023 ] 	Time consumption: [Data]06%, [Network]94%
+[ Sun Aug  6 15:44:08 2023 ] Eval epoch: 3
+[ Sun Aug  6 15:47:14 2023 ] 	Mean test loss of 3 batches: 1.3050212860107422.
+[ Sun Aug  6 15:47:14 2023 ] 	Top1: 14.58%
+[ Sun Aug  6 15:47:14 2023 ] 	Top5: 100.00%
+[ Sun Aug  6 15:47:14 2023 ] Training epoch: 4
+[ Sun Aug  6 15:58:22 2023 ] 	Mean training loss: 1.1604.
+[ Sun Aug  6 15:58:22 2023 ] 	Time consumption: [Data]07%, [Network]93%
+[ Sun Aug  6 15:58:22 2023 ] Eval epoch: 4
+[ Sun Aug  6 16:01:25 2023 ] 	Mean test loss of 3 batches: 1.3254901965459187.
+[ Sun Aug  6 16:01:25 2023 ] 	Top1: 13.54%
+[ Sun Aug  6 16:01:25 2023 ] 	Top5: 98.96%
+[ Sun Aug  6 16:01:25 2023 ] Training epoch: 5
+[ Sun Aug  6 16:12:33 2023 ] 	Mean training loss: 1.1915.
+[ Sun Aug  6 16:12:33 2023 ] 	Time consumption: [Data]07%, [Network]93%
+[ Sun Aug  6 16:12:33 2023 ] Eval epoch: 5
+[ Sun Aug  6 16:15:36 2023 ] 	Mean test loss of 3 batches: 1.1268292268117268.
+[ Sun Aug  6 16:15:36 2023 ] 	Top1: 14.58%
+[ Sun Aug  6 16:15:36 2023 ] 	Top5: 98.96%
+[ Sun Aug  6 16:15:36 2023 ] Training epoch: 6
+[ Sun Aug  6 16:27:00 2023 ] 	Mean training loss: 1.1145.
+[ Sun Aug  6 16:27:00 2023 ] 	Time consumption: [Data]07%, [Network]93%
+[ Sun Aug  6 16:27:00 2023 ] Eval epoch: 6
+[ Sun Aug  6 16:30:03 2023 ] 	Mean test loss of 3 batches: 1.2485153277715046.
+[ Sun Aug  6 16:30:03 2023 ] 	Top1: 12.50%
+[ Sun Aug  6 16:30:03 2023 ] 	Top5: 98.96%
+[ Sun Aug  6 16:30:03 2023 ] Training epoch: 7
+[ Sun Aug  6 16:41:14 2023 ] 	Mean training loss: 1.1354.
+[ Sun Aug  6 16:41:14 2023 ] 	Time consumption: [Data]07%, [Network]93%
+[ Sun Aug  6 16:41:14 2023 ] Eval epoch: 7
+[ Sun Aug  6 16:44:15 2023 ] 	Mean test loss of 3 batches: 1.113400936126709.
+[ Sun Aug  6 16:44:15 2023 ] 	Top1: 62.50%
+[ Sun Aug  6 16:44:15 2023 ] 	Top5: 100.00%
+[ Sun Aug  6 16:44:15 2023 ] Training epoch: 8
+[ Sun Aug  6 16:55:42 2023 ] 	Mean training loss: 1.0286.
+[ Sun Aug  6 16:55:42 2023 ] 	Time consumption: [Data]07%, [Network]93%
+[ Sun Aug  6 16:55:42 2023 ] Eval epoch: 8
+[ Sun Aug  6 16:58:49 2023 ] 	Mean test loss of 3 batches: 1.243066390355428.
+[ Sun Aug  6 16:58:49 2023 ] 	Top1: 38.54%
+[ Sun Aug  6 16:58:49 2023 ] 	Top5: 100.00%
+[ Sun Aug  6 16:58:49 2023 ] Training epoch: 9
+[ Sun Aug  6 21:45:52 2023 ] 	Mean training loss: 1.0626.
+[ Sun Aug  6 21:45:52 2023 ] 	Time consumption: [Data]00%, [Network]100%
+[ Sun Aug  6 21:45:52 2023 ] Eval epoch: 9
+[ Sun Aug  6 21:49:19 2023 ] 	Mean test loss of 3 batches: 1.610715428988139.
+[ Sun Aug  6 21:49:19 2023 ] 	Top1: 13.54%
+[ Sun Aug  6 21:49:19 2023 ] 	Top5: 100.00%
+[ Sun Aug  6 21:49:19 2023 ] Training epoch: 10
+[ Sun Aug  6 22:02:57 2023 ] 	Mean training loss: 1.0387.
+[ Sun Aug  6 22:02:57 2023 ] 	Time consumption: [Data]06%, [Network]94%
+[ Sun Aug  6 22:02:57 2023 ] Eval epoch: 10
+[ Sun Aug  6 22:06:42 2023 ] 	Mean test loss of 3 batches: 1.4587364196777344.
+[ Sun Aug  6 22:06:42 2023 ] 	Top1: 33.33%
+[ Sun Aug  6 22:06:42 2023 ] 	Top5: 100.00%
+[ Wed Aug 23 17:47:31 2023 ] using warm up, epoch: 0
+[ Wed Aug 23 17:47:31 2023 ] Parameters:
+{'work_dir': './work_dir/smarthome/xsub/agcn_joint', 'model_saved_name': './runs/smarthome_cs_agcn_joint', 'config': './config/smarthome/cross_subject/train_joint.yaml', 'phase': 'train', 'save_score': False, 'seed': 1, 'log_interval': 100, 'save_interval': 2, 'eval_interval': 5, 'print_log': True, 'show_topk': [1, 5], 'feeder': 'feeders.feeder.Feeder', 'num_worker': 32, 'train_feeder_args': {'data_path': './data/smarthome/xsub/train_data_joint.npy', 'label_path': './data/smarthome/xsub/train_label.pkl', 'debug': False, 'random_choose': False, 'random_shift': False, 'random_move': False, 'window_size': -1, 'normalization': False}, 'test_feeder_args': {'data_path': './data/smarthome/xsub/val_data_joint.npy', 'label_path': './data/smarthome/xsub/val_label.pkl'}, 'model': 'model.agcn.Model', 'model_args': {'num_class': 31, 'num_point': 15, 'num_person': 1, 'graph': 'graph.smarthome.Graph', 'graph_args': {'labeling_mode': 'spatial'}}, 'weights': None, 'ignore_weights': [], 'base_lr': 0.1, 'step': [30, 40], 'device': [0, 1, 2, 3], 'optimizer': 'SGD', 'nesterov': True, 'batch_size': 16, 'test_batch_size': 32, 'start_epoch': 0, 'num_epoch': 6, 'weight_decay': 0.0001, 'only_train_part': False, 'only_train_epoch': 0, 'warm_up_epoch': 0}
+
+[ Wed Aug 23 17:47:31 2023 ] Training epoch: 1
+[ Wed Aug 23 18:01:44 2023 ] 	Mean training loss: 3.0135.
+[ Wed Aug 23 18:01:44 2023 ] 	Time consumption: [Data]09%, [Network]91%
+[ Wed Aug 23 18:01:44 2023 ] Eval epoch: 1
+[ Wed Aug 23 18:04:49 2023 ] 	Mean test loss of 3 batches: 1.9440551201502483.
+[ Wed Aug 23 18:04:49 2023 ] 	Top1: 69.79%
+[ Wed Aug 23 18:04:49 2023 ] 	Top5: 98.96%
+[ Wed Aug 23 18:04:49 2023 ] Training epoch: 2
+[ Mon Aug 28 12:32:28 2023 ] using warm up, epoch: 0
+[ Mon Aug 28 12:32:28 2023 ] Parameters:
+{'work_dir': './work_dir/smarthome/xsub/agcn_joint', 'model_saved_name': './runs/smarthome_cs_agcn_joint', 'config': './config/smarthome/cross_subject/train_joint.yaml', 'phase': 'train', 'save_score': False, 'seed': 1, 'log_interval': 100, 'save_interval': 2, 'eval_interval': 5, 'print_log': True, 'show_topk': [1, 5], 'feeder': 'feeders.feeder.Feeder', 'num_worker': 32, 'train_feeder_args': {'data_path': './data/smarthome/xsub/train_data_joint.npy', 'label_path': './data/smarthome/xsub/train_label.pkl', 'debug': False, 'random_choose': False, 'random_shift': False, 'random_move': False, 'window_size': -1, 'normalization': False}, 'test_feeder_args': {'data_path': './data/smarthome/xsub/val_data_joint.npy', 'label_path': './data/smarthome/xsub/val_label.pkl'}, 'model': 'model.agcn.Model', 'model_args': {'num_class': 31, 'num_point': 15, 'num_person': 1, 'graph': 'graph.smarthome.Graph', 'graph_args': {'labeling_mode': 'spatial'}}, 'weights': None, 'ignore_weights': [], 'base_lr': 0.1, 'step': [30, 40], 'device': [0, 1, 2, 3], 'optimizer': 'SGD', 'nesterov': True, 'batch_size': 16, 'test_batch_size': 32, 'start_epoch': 0, 'num_epoch': 2, 'weight_decay': 0.0001, 'only_train_part': False, 'only_train_epoch': 0, 'warm_up_epoch': 0}
+
+[ Mon Aug 28 12:32:28 2023 ] Training epoch: 1
+[ Mon Aug 28 20:37:29 2023 ] using warm up, epoch: 0
+[ Mon Aug 28 20:37:29 2023 ] Parameters:
+{'work_dir': './work_dir/smarthome/xsub/agcn_joint', 'model_saved_name': './runs/smarthome_cs_agcn_joint', 'config': './config/smarthome/cross_subject/train_joint.yaml', 'phase': 'train', 'save_score': False, 'seed': 1, 'log_interval': 100, 'save_interval': 2, 'eval_interval': 5, 'print_log': True, 'show_topk': [1, 5], 'feeder': 'feeders.feeder.Feeder', 'num_worker': 32, 'train_feeder_args': {'data_path': './data/smarthome/xsub/train_data_joint.npy', 'label_path': './data/smarthome/xsub/train_label.pkl', 'debug': False, 'random_choose': False, 'random_shift': False, 'random_move': False, 'window_size': -1, 'normalization': False}, 'test_feeder_args': {'data_path': './data/smarthome/xsub/val_data_joint.npy', 'label_path': './data/smarthome/xsub/val_label.pkl'}, 'model': 'model.agcn.Model', 'model_args': {'num_class': 31, 'num_point': 15, 'num_person': 1, 'graph': 'graph.smarthome.Graph', 'graph_args': {'labeling_mode': 'spatial'}}, 'weights': None, 'ignore_weights': [], 'base_lr': 0.1, 'step': [30, 40], 'device': [0, 1, 2, 3], 'optimizer': 'SGD', 'nesterov': True, 'batch_size': 16, 'test_batch_size': 32, 'start_epoch': 0, 'num_epoch': 2, 'weight_decay': 0.0001, 'only_train_part': False, 'only_train_epoch': 0, 'warm_up_epoch': 0}
+
+[ Mon Aug 28 20:37:29 2023 ] Training epoch: 1
+[ Mon Aug 28 20:38:45 2023 ] 	Mean training loss: nan.
+[ Mon Aug 28 20:38:45 2023 ] 	Time consumption: [Data]33%, [Network]33%
+[ Mon Aug 28 20:38:45 2023 ] Eval epoch: 1
+[ Wed Aug 30 20:18:52 2023 ] using warm up, epoch: 0
+[ Wed Aug 30 20:18:52 2023 ] Parameters:
+{'work_dir': './work_dir/smarthome/xsub/agcn_joint', 'model_saved_name': './runs/smarthome_cs_agcn_joint', 'config': './config/smarthome/cross_subject/train_joint.yaml', 'phase': 'train', 'save_score': False, 'seed': 1, 'log_interval': 100, 'save_interval': 2, 'eval_interval': 5, 'print_log': True, 'show_topk': [1, 5], 'feeder': 'feeders.feeder.Feeder', 'num_worker': 32, 'train_feeder_args': {'data_path': './data/smarthome/xsub/train_data_joint.npy', 'label_path': './data/smarthome/xsub/train_label.pkl', 'debug': False, 'random_choose': False, 'random_shift': False, 'random_move': False, 'window_size': -1, 'normalization': False}, 'test_feeder_args': {'data_path': './data/smarthome/xsub/val_data_joint.npy', 'label_path': './data/smarthome/xsub/val_label.pkl'}, 'model': 'model.agcn.Model', 'model_args': {'num_class': 31, 'num_point': 15, 'num_person': 1, 'graph': 'graph.smarthome.Graph', 'graph_args': {'labeling_mode': 'spatial'}}, 'weights': None, 'ignore_weights': [], 'base_lr': 0.1, 'step': [30, 40], 'device': [0, 1, 2, 3], 'optimizer': 'SGD', 'nesterov': True, 'batch_size': 16, 'test_batch_size': 32, 'start_epoch': 0, 'num_epoch': 2, 'weight_decay': 0.0001, 'only_train_part': False, 'only_train_epoch': 0, 'warm_up_epoch': 0}
+
+[ Wed Aug 30 20:18:52 2023 ] Training epoch: 1
+[ Wed Aug 30 20:20:06 2023 ] 	Mean training loss: nan.
+[ Wed Aug 30 20:20:16 2023 ] 	Time consumption: [Data]33%, [Network]33%
+[ Wed Aug 30 20:20:17 2023 ] Eval epoch: 1
+[ Wed Aug 30 20:21:30 2023 ] using warm up, epoch: 0
+[ Wed Aug 30 20:21:30 2023 ] Parameters:
+{'work_dir': './work_dir/smarthome/xsub/agcn_joint', 'model_saved_name': './runs/smarthome_cs_agcn_joint', 'config': './config/smarthome/cross_subject/train_joint.yaml', 'phase': 'train', 'save_score': False, 'seed': 1, 'log_interval': 100, 'save_interval': 2, 'eval_interval': 5, 'print_log': True, 'show_topk': [1, 5], 'feeder': 'feeders.feeder.Feeder', 'num_worker': 32, 'train_feeder_args': {'data_path': './data/smarthome/xsub/train_data_joint.npy', 'label_path': './data/smarthome/xsub/train_label.pkl', 'debug': False, 'random_choose': False, 'random_shift': False, 'random_move': False, 'window_size': -1, 'normalization': False}, 'test_feeder_args': {'data_path': './data/smarthome/xsub/val_data_joint.npy', 'label_path': './data/smarthome/xsub/val_label.pkl'}, 'model': 'model.agcn.Model', 'model_args': {'num_class': 31, 'num_point': 15, 'num_person': 1, 'graph': 'graph.smarthome.Graph', 'graph_args': {'labeling_mode': 'spatial'}}, 'weights': None, 'ignore_weights': [], 'base_lr': 0.1, 'step': [30, 40], 'device': [0, 1, 2, 3], 'optimizer': 'SGD', 'nesterov': True, 'batch_size': 16, 'test_batch_size': 32, 'start_epoch': 0, 'num_epoch': 2, 'weight_decay': 0.0001, 'only_train_part': False, 'only_train_epoch': 0, 'warm_up_epoch': 0}
+
+[ Wed Aug 30 20:21:30 2023 ] Training epoch: 1
+[ Wed Aug 30 20:22:52 2023 ] 	Mean training loss: nan.
+[ Wed Aug 30 20:22:52 2023 ] 	Time consumption: [Data]33%, [Network]33%
+[ Wed Aug 30 20:22:52 2023 ] Eval epoch: 1
+[ Wed Aug 30 20:27:40 2023 ] using warm up, epoch: 0
+[ Wed Aug 30 20:27:47 2023 ] Parameters:
+{'work_dir': './work_dir/smarthome/xsub/agcn_joint', 'model_saved_name': './runs/smarthome_cs_agcn_joint', 'config': './config/smarthome/cross_subject/train_joint.yaml', 'phase': 'train', 'save_score': False, 'seed': 1, 'log_interval': 100, 'save_interval': 2, 'eval_interval': 5, 'print_log': True, 'show_topk': [1, 5], 'feeder': 'feeders.feeder.Feeder', 'num_worker': 32, 'train_feeder_args': {'data_path': './data/smarthome/xsub/train_data_joint.npy', 'label_path': './data/smarthome/xsub/train_label.pkl', 'debug': False, 'random_choose': False, 'random_shift': False, 'random_move': False, 'window_size': -1, 'normalization': False}, 'test_feeder_args': {'data_path': './data/smarthome/xsub/val_data_joint.npy', 'label_path': './data/smarthome/xsub/val_label.pkl'}, 'model': 'model.agcn.Model', 'model_args': {'num_class': 31, 'num_point': 15, 'num_person': 1, 'graph': 'graph.smarthome.Graph', 'graph_args': {'labeling_mode': 'spatial'}}, 'weights': None, 'ignore_weights': [], 'base_lr': 0.1, 'step': [30, 40], 'device': [0, 1, 2, 3], 'optimizer': 'SGD', 'nesterov': True, 'batch_size': 16, 'test_batch_size': 32, 'start_epoch': 0, 'num_epoch': 2, 'weight_decay': 0.0001, 'only_train_part': False, 'only_train_epoch': 0, 'warm_up_epoch': 0}
+
+[ Wed Aug 30 20:27:47 2023 ] Training epoch: 1
+[ Wed Aug 30 20:31:08 2023 ] using warm up, epoch: 0
+[ Wed Aug 30 20:31:08 2023 ] Parameters:
+{'work_dir': './work_dir/smarthome/xsub/agcn_joint', 'model_saved_name': './runs/smarthome_cs_agcn_joint', 'config': './config/smarthome/cross_subject/train_joint.yaml', 'phase': 'train', 'save_score': False, 'seed': 1, 'log_interval': 100, 'save_interval': 2, 'eval_interval': 5, 'print_log': True, 'show_topk': [1, 5], 'feeder': 'feeders.feeder.Feeder', 'num_worker': 32, 'train_feeder_args': {'data_path': './data/smarthome/xsub/train_data_joint.npy', 'label_path': './data/smarthome/xsub/train_label.pkl', 'debug': False, 'random_choose': False, 'random_shift': False, 'random_move': False, 'window_size': -1, 'normalization': False}, 'test_feeder_args': {'data_path': './data/smarthome/xsub/val_data_joint.npy', 'label_path': './data/smarthome/xsub/val_label.pkl'}, 'model': 'model.agcn.Model', 'model_args': {'num_class': 31, 'num_point': 15, 'num_person': 1, 'graph': 'graph.smarthome.Graph', 'graph_args': {'labeling_mode': 'spatial'}}, 'weights': None, 'ignore_weights': [], 'base_lr': 0.1, 'step': [30, 40], 'device': [0, 1, 2, 3], 'optimizer': 'SGD', 'nesterov': True, 'batch_size': 16, 'test_batch_size': 32, 'start_epoch': 0, 'num_epoch': 2, 'weight_decay': 0.0001, 'only_train_part': False, 'only_train_epoch': 0, 'warm_up_epoch': 0}
+
+[ Wed Aug 30 20:31:08 2023 ] Training epoch: 1
+[ Wed Aug 30 20:32:26 2023 ] 	Mean training loss: nan.
+[ Wed Aug 30 20:32:26 2023 ] 	Time consumption: [Data]33%, [Network]33%
+[ Wed Aug 30 20:32:26 2023 ] Eval epoch: 1
+[ Wed Aug 30 20:33:53 2023 ] 	Mean test loss of 1 batches: 3.46671199798584.
+[ Wed Aug 30 20:33:53 2023 ] 	Top1: 0.00%
+[ Wed Aug 30 20:33:53 2023 ] 	Top5: 0.00%
+[ Wed Aug 30 20:33:53 2023 ] Training epoch: 2
+[ Wed Aug 30 20:34:50 2023 ] 	Mean training loss: nan.
+[ Wed Aug 30 20:34:50 2023 ] 	Time consumption: [Data]33%, [Network]33%
+[ Wed Aug 30 20:34:50 2023 ] Eval epoch: 2
+[ Wed Aug 30 20:35:59 2023 ] 	Mean test loss of 1 batches: 3.46671199798584.
+[ Wed Aug 30 20:35:59 2023 ] 	Top1: 0.00%
+[ Wed Aug 30 20:35:59 2023 ] 	Top5: 0.00%
+[ Thu Aug 31 00:41:49 2023 ] using warm up, epoch: 0
+[ Thu Aug 31 00:41:49 2023 ] Parameters:
+{'work_dir': './work_dir/smarthome/xsub/agcn_joint', 'model_saved_name': './runs/smarthome_cs_agcn_joint', 'config': './config/smarthome/cross_subject/train_joint.yaml', 'phase': 'train', 'save_score': False, 'seed': 1, 'log_interval': 100, 'save_interval': 2, 'eval_interval': 5, 'print_log': True, 'show_topk': [1, 5], 'feeder': 'feeders.feeder.Feeder', 'num_worker': 32, 'train_feeder_args': {'data_path': './data/smarthome/xsub/train_data_joint.npy', 'label_path': './data/smarthome/xsub/train_label.pkl', 'debug': False, 'random_choose': False, 'random_shift': False, 'random_move': False, 'window_size': -1, 'normalization': False}, 'test_feeder_args': {'data_path': './data/smarthome/xsub/val_data_joint.npy', 'label_path': './data/smarthome/xsub/val_label.pkl'}, 'model': 'model.agcn.Model', 'model_args': {'num_class': 31, 'num_point': 15, 'num_person': 1, 'graph': 'graph.smarthome.Graph', 'graph_args': {'labeling_mode': 'spatial'}}, 'weights': None, 'ignore_weights': [], 'base_lr': 0.1, 'step': [30, 40], 'device': [0, 1, 2, 3], 'optimizer': 'SGD', 'nesterov': True, 'batch_size': 16, 'test_batch_size': 32, 'start_epoch': 0, 'num_epoch': 2, 'weight_decay': 0.0001, 'only_train_part': False, 'only_train_epoch': 0, 'warm_up_epoch': 0}
+
+[ Thu Aug 31 00:41:49 2023 ] Training epoch: 1
+[ Thu Aug 31 00:45:24 2023 ] 	Mean training loss: 3.3576.
+[ Thu Aug 31 00:45:24 2023 ] 	Time consumption: [Data]20%, [Network]80%
+[ Thu Aug 31 00:45:24 2023 ] Eval epoch: 1
+[ Thu Aug 31 00:46:36 2023 ] 	Mean test loss of 1 batches: 63.068397521972656.
+[ Thu Aug 31 00:46:36 2023 ] 	Top1: 50.00%
+[ Thu Aug 31 00:46:36 2023 ] 	Top5: 50.00%
+[ Thu Aug 31 00:46:36 2023 ] Training epoch: 2
+[ Thu Aug 31 00:49:55 2023 ] 	Mean training loss: 1.7411.
+[ Thu Aug 31 00:49:55 2023 ] 	Time consumption: [Data]21%, [Network]79%
+[ Thu Aug 31 00:49:55 2023 ] Eval epoch: 2
+[ Thu Aug 31 00:50:59 2023 ] 	Mean test loss of 1 batches: 6.4495086669921875.
+[ Thu Aug 31 00:50:59 2023 ] 	Top1: 50.00%
+[ Thu Aug 31 00:50:59 2023 ] 	Top5: 100.00%
+[ Thu Aug 31 00:53:04 2023 ] using warm up, epoch: 0
+[ Thu Aug 31 00:53:04 2023 ] Parameters:
+{'work_dir': './work_dir/smarthome/xsub/agcn_joint', 'model_saved_name': './runs/smarthome_cs_agcn_joint', 'config': './config/smarthome/cross_subject/train_joint.yaml', 'phase': 'train', 'save_score': False, 'seed': 1, 'log_interval': 100, 'save_interval': 2, 'eval_interval': 5, 'print_log': True, 'show_topk': [1, 5], 'feeder': 'feeders.feeder.Feeder', 'num_worker': 32, 'train_feeder_args': {'data_path': './data/smarthome/xsub/train_data_joint.npy', 'label_path': './data/smarthome/xsub/train_label.pkl', 'debug': False, 'random_choose': False, 'random_shift': False, 'random_move': False, 'window_size': -1, 'normalization': False}, 'test_feeder_args': {'data_path': './data/smarthome/xsub/val_data_joint.npy', 'label_path': './data/smarthome/xsub/val_label.pkl'}, 'model': 'model.agcn.Model', 'model_args': {'num_class': 31, 'num_point': 15, 'num_person': 1, 'graph': 'graph.smarthome.Graph', 'graph_args': {'labeling_mode': 'spatial'}}, 'weights': None, 'ignore_weights': [], 'base_lr': 0.1, 'step': [30, 40], 'device': [0, 1, 2, 3], 'optimizer': 'SGD', 'nesterov': True, 'batch_size': 16, 'test_batch_size': 32, 'start_epoch': 0, 'num_epoch': 5, 'weight_decay': 0.0001, 'only_train_part': False, 'only_train_epoch': 0, 'warm_up_epoch': 0}
+
+[ Thu Aug 31 00:53:04 2023 ] Training epoch: 1
+[ Thu Aug 31 00:56:21 2023 ] 	Mean training loss: 3.3576.
+[ Thu Aug 31 00:56:21 2023 ] 	Time consumption: [Data]22%, [Network]78%
+[ Thu Aug 31 00:56:21 2023 ] Eval epoch: 1
+[ Thu Aug 31 00:57:26 2023 ] 	Mean test loss of 1 batches: 63.068397521972656.
+[ Thu Aug 31 00:57:26 2023 ] 	Top1: 50.00%
+[ Thu Aug 31 00:57:26 2023 ] 	Top5: 50.00%
+[ Thu Aug 31 00:57:26 2023 ] Training epoch: 2
+[ Thu Aug 31 01:00:37 2023 ] 	Mean training loss: 1.7411.
+[ Thu Aug 31 01:00:37 2023 ] 	Time consumption: [Data]22%, [Network]78%
+[ Thu Aug 31 01:00:37 2023 ] Eval epoch: 2
+[ Thu Aug 31 01:01:42 2023 ] 	Mean test loss of 1 batches: 6.4495086669921875.
+[ Thu Aug 31 01:01:42 2023 ] 	Top1: 50.00%
+[ Thu Aug 31 01:01:42 2023 ] 	Top5: 100.00%
+[ Thu Aug 31 01:01:42 2023 ] Training epoch: 3
+[ Thu Aug 31 01:04:52 2023 ] 	Mean training loss: 2.9273.
+[ Thu Aug 31 01:04:52 2023 ] 	Time consumption: [Data]22%, [Network]78%
+[ Thu Aug 31 01:04:52 2023 ] Eval epoch: 3
+[ Thu Aug 31 01:05:56 2023 ] 	Mean test loss of 1 batches: 3.6087605953216553.
+[ Thu Aug 31 01:05:56 2023 ] 	Top1: 50.00%
+[ Thu Aug 31 01:05:56 2023 ] 	Top5: 100.00%
+[ Thu Aug 31 01:05:56 2023 ] Training epoch: 4
+[ Thu Aug 31 01:09:04 2023 ] 	Mean training loss: 3.6795.
+[ Thu Aug 31 01:09:04 2023 ] 	Time consumption: [Data]22%, [Network]78%
+[ Thu Aug 31 01:09:04 2023 ] Eval epoch: 4
+[ Thu Aug 31 01:10:09 2023 ] 	Mean test loss of 1 batches: 4.6741156578063965.
+[ Thu Aug 31 01:10:09 2023 ] 	Top1: 50.00%
+[ Thu Aug 31 01:10:09 2023 ] 	Top5: 100.00%
+[ Thu Aug 31 01:10:09 2023 ] Training epoch: 5
+[ Thu Aug 31 01:13:22 2023 ] 	Mean training loss: 0.6318.
+[ Thu Aug 31 01:13:22 2023 ] 	Time consumption: [Data]22%, [Network]78%
+[ Thu Aug 31 01:13:22 2023 ] Eval epoch: 5
+[ Thu Aug 31 01:14:27 2023 ] 	Mean test loss of 1 batches: 6.176694393157959.
+[ Thu Aug 31 01:14:27 2023 ] 	Top1: 50.00%
+[ Thu Aug 31 01:14:27 2023 ] 	Top5: 100.00%
