@@ -1,0 +1,11 @@
+pyyaml
+argparse
+numpy
+h5py
+opencv-python
+imageio
+scikit-video
+torch==1.13.1
+torchvision
+
+

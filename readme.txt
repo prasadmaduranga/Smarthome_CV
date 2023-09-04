@@ -47,7 +47,8 @@ python ensemble.py --datasets ntu/xview
 
 Data gen
 python  ./tools/data_gen/smarthome_gendata.py          // for skeleton
-python  ./tools/data_gen/smarthome_rgb_gendata.py      // for rgb resnet encoding
+pip freeze > requirements.txt      // for rgb resnet encoding
+
 Model Training
 python main_rgb_joint.py --config ./config/smarthome/cross_subject/train_rgb_joint.yaml
 
