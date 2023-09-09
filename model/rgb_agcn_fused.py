@@ -88,26 +88,7 @@ class Model(nn.Module):
         x1 = F.softmax(x1, dim=1)
 
         return x
-        #
-        # N, C, T, V, M = x.size()
-        #
-        # # Flatten the input data to align with ChebConv requirements
-        # x = x.view(N * M, C, T, V).permute(0, 3, 2, 1).contiguous().view(N * M * V, T, C)
-        #
-        # # ChebConv layer
-        # x = self.cheb_conv(x, edge_index)
-        #
-        # # LSTM layer
-        # x = x.view(N * M * T, V, C)
-        # x, _ = self.lstm(x)  # Apply LSTM
-        #
-        #
-        # # Reshape the LSTM output back to the original shape
-        # x = x[:, -1, :]
-        # x = self.fc(x)
-        # x = F.softmax(x, dim=1)
-        #
-        # return x
+
 # python main_rgb_joint.py --config ./config/smarthome/cross_subject/train_rgb_joint.yaml
 
 # python main.py --config ./config/nturgbd-cross-view/test_rgb_joint.yaml
