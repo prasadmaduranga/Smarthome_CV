@@ -301,9 +301,13 @@ class Processor():
 
         if type(self.arg.device) is list:
             if len(self.arg.device) > 1:
+                available_gpus = list(range(torch.cuda.device_count()))
+                valid_device_ids = [d for d in self.arg.device if d in available_gpus]
+                if not valid_device_ids:
+                    raise ValueError("No valid GPU IDs provided.")
                 self.model = nn.DataParallel(
                     self.model,
-                    device_ids=self.arg.device,
+                    device_ids=valid_device_ids,
                     output_device=output_device)
 
     def load_optimizer(self):
@@ -401,11 +405,15 @@ class Processor():
             self.global_step += 1
             # get data
             if torch.cuda.is_available():
-                data = Variable(data.float().cuda(self.output_device), requires_grad=False)
-                label = Variable(label.long().cuda(self.output_device), requires_grad=False)
+                data = Variable(data.float().cuda(self.output_device), requires_grad=False,
+                        volatile=True)
+                label = Variable(label.long().cuda(self.output_device), requires_grad=False,
+                        volatile=True)
             else:   
-                data = Variable(data.float(), requires_grad=False)
-                label = Variable(label.long(), requires_grad=False)
+                data = Variable(data.float(), requires_grad=False,
+                        volatile=True)
+                label = Variable(label.long(), requires_grad=False,
+                        volatile=True)
 
             
             timer['dataloader'] += self.split_time()

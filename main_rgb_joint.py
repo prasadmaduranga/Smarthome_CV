@@ -131,6 +131,15 @@ def get_parser():
         default=dict(),
         help='the arguments of data loader for test')
 
+    parser.add_argument(
+        '--train-rgb-feeder-args',
+        default=dict(),
+        help='the rgb image arguments of data loader for training')
+    parser.add_argument(
+        '--test-rgb-feeder-args',
+        default=dict(),
+        help='the arguments of rgb data loader for test')
+
     # model
     parser.add_argument('--model', default=None, help='the model will be used')
     parser.add_argument(
@@ -233,13 +242,27 @@ class Processor():
                 num_workers=self.arg.num_worker,
                 drop_last=True,
                 worker_init_fn=init_seed)
+            self.data_loader['train_rgb'] = torch.utils.data.DataLoader(
+                dataset=Feeder(**self.arg.train_rgb_feeder_args),
+                batch_size=self.arg.batch_size,
+                shuffle=True,
+                num_workers=self.arg.num_worker,
+                drop_last=True,
+                worker_init_fn=init_seed)
         self.data_loader['test'] = torch.utils.data.DataLoader(
             dataset=Feeder(**self.arg.test_feeder_args),
             batch_size=self.arg.test_batch_size,
             shuffle=False,
             num_workers=self.arg.num_worker,
             drop_last=False,
-            worker_init_fn=init_seed) 
+            worker_init_fn=init_seed)
+        self.data_loader['test_rgb'] = torch.utils.data.DataLoader(
+            dataset=Feeder(**self.arg.test_rgb_feeder_args),
+            batch_size=self.arg.test_batch_size,
+            shuffle=False,
+            num_workers=self.arg.num_worker,
+            drop_last=False,
+            worker_init_fn=init_seed)
 
     def load_model(self):
         output_device = self.arg.device[0] if type(self.arg.device) is list else self.arg.device
@@ -299,11 +322,16 @@ class Processor():
                 state.update(weights)
                 self.model.load_state_dict(state)
 
-        if type(self.arg.device) is list:
+        if type(self.arg.device) is list and torch.cuda.is_available():
             if len(self.arg.device) > 1:
+                available_gpus = list(range(torch.cuda.device_count()))
+                valid_device_ids = [d for d in self.arg.device if d in available_gpus]
+                if not valid_device_ids:
+                    raise ValueError("No valid GPU IDs provided.")
+
                 self.model = nn.DataParallel(
                     self.model,
-                    device_ids=self.arg.device,
+                    device_ids=valid_device_ids,
                     output_device=output_device)
 
     def load_optimizer(self):
@@ -383,7 +411,7 @@ class Processor():
         self.train_writer.add_scalar('epoch', epoch, self.global_step)
         self.record_time()
         timer = dict(dataloader=0.001, model=0.001, statistics=0.001)
-        process = tqdm(loader)
+        process = tqdm(zip(self.data_loader['train'], self.data_loader['train_rgb']))
         if self.arg.only_train_part:
             if epoch > self.arg.only_train_epoch:
                 print('only train part, require grad')
@@ -399,20 +427,23 @@ class Processor():
                         # print(key + '-not require grad')
 
         try:
-            for batch_idx, (data, label, index) in enumerate(process):
+            for batch_idx, ((data, label, index), (data_rgb, label_rgb, index_rgb)) in enumerate(process):
                 self.global_step += 1
                 # get data
                 if torch.cuda.is_available():
                     data = Variable(data.float().cuda(self.output_device), requires_grad=False)
+                    data_rgb = Variable(data_rgb.float().cuda(self.output_device), requires_grad=False)
                     label = Variable(label.long().cuda(self.output_device), requires_grad=False)
                 else:
                     data = Variable(data.float(), requires_grad=False)
+                    data_rgb = Variable(data_rgb.float(), requires_grad=False)
                     label = Variable(label.long(), requires_grad=False)
 
                 timer['dataloader'] += self.split_time()
 
                 # forward
-                output = self.model(data)
+                output = self.model(data, data_rgb)
+                # output = self.model(data)
                 # if batch_idx == 0 and epoch == 0:
                 #     self.train_writer.add_graph(self.model, output)
                 if isinstance(output, tuple):
@@ -447,6 +478,7 @@ class Processor():
                 timer['statistics'] += self.split_time()
 
         except Exception as e:
+            self.print_log("An exception occurred:", str(e))
             print("An exception occurred:", str(e))
             # Handle the exception as needed
 
@@ -482,31 +514,31 @@ class Processor():
             total_num = 0
             loss_total = 0
             step = 0
-            process = tqdm(self.data_loader[ln])
-            for batch_idx, (data, label, index) in enumerate(process):
+            process = tqdm(zip(self.data_loader[ln], self.data_loader[ln + '_rgb']))
+            for batch_idx, ((data, label, index), (data_rgb, label_rgb, index_rgb)) in enumerate(process):
                 with torch.no_grad():
                     if torch.cuda.is_available():
                         data = Variable(
                         data.float().cuda(self.output_device),
-                        requires_grad=False,
-                        volatile=True)
+                        requires_grad=False)
+                        data_rgb = Variable(data_rgb.float().cuda(self.output_device), requires_grad=False)
                         label = Variable(
                         label.long().cuda(self.output_device),
-                        requires_grad=False,
-                        volatile=True)
+                        requires_grad=False)
                     else:   
                         data = Variable(
                         data.float(),
                         requires_grad=False,
                         volatile=True)
+                        data_rgb = Variable(data_rgb.float(), requires_grad=False)
                         label = Variable(
                         label.long(),
-                        requires_grad=False,
-                        volatile=True)
+                        requires_grad=False)
 
     
                 
-                    output = self.model(data)
+                    output = self.model(data,data_rgb)
+                    # output = self.model(data)
                     if isinstance(output, tuple):
                         output, l1 = output
                         l1 = l1.mean()

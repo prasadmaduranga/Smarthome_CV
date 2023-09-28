@@ -46,42 +46,53 @@ resnet_encoder_dims = 1000
 
 
 
+
 class ImageEncoder:
-    def __init__(self):
-        self.model = resnet50(pretrained=True)
+    def __init__(self, batch_size=32):
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        self.model = resnet50(pretrained=True).to(self.device)
         self.model.eval()
         self.transform = transforms.Compose([
-            transforms.Scale(256),
+            transforms.Resize(256),
             transforms.CenterCrop(224),
             transforms.ToTensor(),
             transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
         ])
+        self.batch_size = batch_size
 
-    def encode_image(self, image_path):
-        img = Image.open(image_path).convert("RGB")
-        img = self.transform(img).unsqueeze(0)
+    def encode_images(self, frames):
+        imgs = [Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)) for frame in frames]
+        tensors = [self.transform(img) for img in imgs]
+        batch_tensor = torch.stack(tensors).to(self.device)
         with torch.no_grad():
-            encoding = self.model(img)
-        return encoding.squeeze().numpy()
+            encodings = self.model(batch_tensor)
+        return encodings.cpu().numpy()
 
 encoder = ImageEncoder()
-
 
 def read_xyz(file):
     cap = cv2.VideoCapture(file)
     frame_count = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
     step = int(cap.get(cv2.CAP_PROP_FPS) / frame_rate)
-
     video_encodings = np.zeros((frame_count, resnet_encoder_dims))
 
+    frames = []
+    indices = []
     for i in range(0, frame_count, max(1, step)):
         ret, frame = cap.read()
         if ret:
-            temp_image_path = f"temp_frame_{i}.jpg"
-            cv2.imwrite(temp_image_path, frame)
-            encoding = encoder.encode_image(temp_image_path)
-            os.remove(temp_image_path)
-            video_encodings[i, :] = encoding
+            frames.append(frame)
+            indices.append(i)
+            if len(frames) == encoder.batch_size:
+                encodings = encoder.encode_images(frames)
+                for j, index in enumerate(indices):
+                    video_encodings[index, :] = encodings[j]
+                frames, indices = [], []
+
+    if frames:
+        encodings = encoder.encode_images(frames)
+        for j, index in enumerate(indices):
+            video_encodings[index, :] = encodings[j]
 
     cap.release()
     return video_encodings

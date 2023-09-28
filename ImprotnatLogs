@@ -1,0 +1,62 @@
+Improtnat logs 
+
+******** Training the original AGCN model with 5 epochs 
+
+ Thu Sep 14 14:39:06 2023 ] Parameters:
+{'work_dir': './work_dir/smarthome/xsub/agcn_joint', 'model_saved_name': './runs/smarthome_cs_agcn_joint', 'config': './config/smarthome/cross_subject/train_joint.yaml', 'phase': 'train', 'save_score': False, 'seed': 1, 'log_inter
+val': 100, 'save_interval': 2, 'eval_interval': 5, 'print_log': True, 'show_topk': [1, 5], 'feeder': 'feeders.feeder.Feeder', 'num_worker': 32, 'train_feeder_args': {'data_path': './data/smarthome/xsub/train_data_joint.npy', 'labe
+l_path': './data/smarthome/xsub/train_label.pkl', 'debug': False, 'random_choose': False, 'random_shift': False, 'random_move': False, 'window_size': -1, 'normalization': False}, 'test_feeder_args': {'data_path': './data/smarthome
+/xsub/val_data_joint.npy', 'label_path': './data/smarthome/xsub/val_label.pkl'}, 'model': 'model.agcn.Model', 'model_args': {'num_class': 31, 'num_point': 15, 'num_person': 1, 'graph': 'graph.smarthome.Graph', 'graph_args': {'labe
+ling_mode': 'spatial'}}, 'weights': None, 'ignore_weights': [], 'base_lr': 0.1, 'step': [30, 40], 'device': [0, 1, 2, 3], 'optimizer': 'SGD', 'nesterov': True, 'batch_size': 16, 'test_batch_size': 32, 'start_epoch': 0, 'num_epoch'
+: 5, 'weight_decay': 0.0001, 'only_train_part': False, 'only_train_epoch': 0, 'warm_up_epoch': 0}
+[ Thu Sep 14 14:39:06 2023 ] Training epoch: 1
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 667/667 [21:53<00:00,  1.97s/it]
+[ Thu Sep 14 15:01:00 2023 ]    Mean training loss: 2.5957.
+[ Thu Sep 14 15:01:00 2023 ]    Time consumption: [Data]01%, [Network]99%
+[ Thu Sep 14 15:01:00 2023 ] Eval epoch: 1
+  0%|                                                                                                                                                                                                         | 0/170 [00:00<?, ?it/s]
+/scratch/l12/pm9132/Smarthome_CV/main.py:488: UserWarning: volatile was removed and now has no effect. Use `with torch.no_grad():` instead.
+  data = Variable(
+/scratch/l12/pm9132/Smarthome_CV/main.py:492: UserWarning: volatile was removed and now has no effect. Use `with torch.no_grad():` instead.
+  label = Variable(
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 170/170 [01:56<00:00,  1.46it/s]
+Accuracy:  0.3368304803975704  model:  ./runs/smarthome_cs_agcn_joint
+[ Thu Sep 14 15:02:56 2023 ]    Mean test loss of 170 batches: 2.5375448367174935.
+[ Thu Sep 14 15:02:57 2023 ]    Top1: 33.68%
+[ Thu Sep 14 15:02:57 2023 ]    Top5: 68.45%
+[ Thu Sep 14 15:02:57 2023 ] Training epoch: 2
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 667/667 [21:41<00:00,  1.95s/it]
+[ Thu Sep 14 15:24:38 2023 ]    Mean training loss: 2.2215.
+[ Thu Sep 14 15:24:38 2023 ]    Time consumption: [Data]01%, [Network]99%
+[ Thu Sep 14 15:24:38 2023 ] Eval epoch: 2
+ 12%|███████████████████████████▊                                                                                                                                                                                                     | 21/170 [00:16<01:38,  1.52it/s]
+ 13%|█████████████████████████████                                                                                                                                                                                                    | 22/170 [00:16<01:37,  1.52it/s]
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 170/170 [01:53<00:00,  1.49it/s]
+Accuracy:  0.43511871893981224  model:  ./runs/smarthome_cs_agcn_joint
+[ Thu Sep 14 15:26:32 2023 ]    Mean test loss of 170 batches: 2.0487239010193767.
+[ Thu Sep 14 15:26:32 2023 ]    Top1: 43.51%
+[ Thu Sep 14 15:26:32 2023 ]    Top5: 79.22%
+[ Thu Sep 14 15:26:32 2023 ] Training epoch: 3
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 667/667 [21:41<00:00,  1.95s/it]
+[ Thu Sep 14 15:48:13 2023 ]    Mean training loss: 2.0647.
+[ Thu Sep 14 15:48:13 2023 ]    Time consumption: [Data]01%, [Network]99%
+[ Thu Sep 14 15:48:13 2023 ] Eval epoch: 3
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 170/170 [01:53<00:00,  1.49it/s]
+Accuracy:  0.43290999447818884  model:  ./runs/smarthome_cs_agcn_joint
+[ Thu Sep 14 15:50:07 2023 ]    Mean test loss of 170 batches: 1.9841449127477757.
+[ Thu Sep 14 15:50:07 2023 ]    Top1: 43.29%
+[ Thu Sep 14 15:50:07 2023 ]    Top5: 80.25%
+[ Thu Sep 14 15:50:07 2023 ] Training epoch: 4
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 667/667 [21:41<00:00,  1.95s/it]
+[ Thu Sep 14 16:11:48 2023 ]    Mean training loss: 1.9136.
+[ Thu Sep 14 16:11:48 2023 ]    Time consumption: [Data]01%, [Network]99%
+[ Thu Sep 14 16:11:48 2023 ] Eval epoch: 4
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 170/170 [01:53<00:00,  1.50it/s]
+Accuracy:  0.46217559359469906  model:  ./runs/smarthome_cs_agcn_joint
+[ Thu Sep 14 16:13:42 2023 ]    Mean test loss of 170 batches: 1.824728249101078.
+[ Thu Sep 14 16:13:42 2023 ]    Top1: 46.22%
+[ Thu Sep 14 16:13:42 2023 ]    Top5: 83.55%
+[ Thu Sep 14 16:13:42 2023 ] Training epoch: 5
+ 90%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                       | 597/667 [19:25<02:16,  1.95s/it]
+Connection to gadi-gpu-v100-0027.gadi.nci.org.au closed by remote host.
+Connection to gadi-gpu-v100-0027.gadi.nci.org.au closed.

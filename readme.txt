@@ -52,3 +52,12 @@ pip freeze > requirements.txt      // for rgb resnet encoding
 Model Training
 python main_rgb_joint.py --config ./config/smarthome/cross_subject/train_rgb_joint.yaml
 
+
+======================
+2S-AGCN RGB analysis - Steps for training and testing :
+data gen step
+python  ./tools/data_gen/smarthome_gendata.py
+training
+python main.py --config ./config/smarthome/cross_subject/train_joint.yaml
+testing
+python main.py --config ./config/nturgbd-cross-view/test_joint.yaml

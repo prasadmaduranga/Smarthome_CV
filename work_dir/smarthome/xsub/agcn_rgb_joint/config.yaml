@@ -1,11 +1,9 @@
 base_lr: 0.1
-batch_size: 16
+batch_size: 8
 config: ./config/smarthome/cross_subject/train_rgb_joint.yaml
 device:
 - 0
 - 1
-- 2
-- 3
 eval_interval: 5
 feeder: feeders.feeder.Feeder
 ignore_weights: []
@@ -20,7 +18,7 @@ model_args:
   num_point: 15
 model_saved_name: ./runs/smarthome_cs_agcn_rgb_joint
 nesterov: true
-num_epoch: 5
+num_epoch: 3
 num_worker: 32
 only_train_epoch: 0
 only_train_part: false
@@ -41,8 +39,20 @@ test_batch_size: 16
 test_feeder_args:
   data_path: ./data/smarthome/xsub/val_data_joint.npy
   label_path: ./data/smarthome/xsub/val_label.pkl
+test_rgb_feeder_args:
+  data_path: ./data/smarthome/xsub/val_data_rgb_joint.npy
+  label_path: ./data/smarthome/xsub/val_label.pkl
 train_feeder_args:
   data_path: ./data/smarthome/xsub/train_data_joint.npy
+  debug: false
+  label_path: ./data/smarthome/xsub/train_label.pkl
+  normalization: false
+  random_choose: false
+  random_move: false
+  random_shift: false
+  window_size: -1
+train_rgb_feeder_args:
+  data_path: ./data/smarthome/xsub/train_data_rgb_joint.npy
   debug: false
   label_path: ./data/smarthome/xsub/train_label.pkl
   normalization: false

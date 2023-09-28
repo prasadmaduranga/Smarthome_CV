@@ -1,0 +1,260 @@
+** 2gpus , rgb_model with LSTM **
+
+[ Mon Sep 18 10:42:36 2023 ] Training epoch: 1
+333it [09:30,  1.71s/it]
+[ Mon Sep 18 10:52:09 2023 ]    Mean training loss: 3.2814.
+[ Mon Sep 18 10:52:09 2023 ]    Time consumption: [Data]94%, [Network]06%
+[ Mon Sep 18 10:52:10 2023 ] Eval epoch: 1
+340it [04:30,  1.26it/s]
+Accuracy:  0.22768267991901345  model:  ./runs/smarthome_cs_agcn_rgb_joint
+[ Mon Sep 18 10:56:44 2023 ]    Mean test loss of 340 batches: 3.274042855992037.
+[ Mon Sep 18 10:56:44 2023 ]    Top1: 22.77%
+[ Mon Sep 18 10:56:44 2023 ]    Top5: 46.46%
+[ Mon Sep 18 10:56:45 2023 ] Training epoch: 2
+333it [13:32,  2.44s/it]
+[ Mon Sep 18 11:10:21 2023 ]    Mean training loss: 3.2233.
+[ Mon Sep 18 11:10:21 2023 ]    Time consumption: [Data]95%, [Network]05%
+[ Mon Sep 18 11:10:21 2023 ] Eval epoch: 2
+340it [04:12,  1.35it/s]
+Accuracy:  0.22768267991901345  model:  ./runs/smarthome_cs_agcn_rgb_joint
+[ Mon Sep 18 11:14:36 2023 ]    Mean test loss of 340 batches: 3.2605701109942267.
+[ Mon Sep 18 11:14:36 2023 ]    Top1: 22.77%
+[ Mon Sep 18 11:14:36 2023 ]    Top5: 30.17%
+[ Mon Sep 18 11:14:37 2023 ] Training epoch: 3
+333it [08:33,  1.54s/it]
+[ Mon Sep 18 11:23:13 2023 ]    Mean training loss: 3.2225.
+[ Mon Sep 18 11:23:13 2023 ]    Time consumption: [Data]70%, [Network]29%
+[ Mon Sep 18 11:23:14 2023 ] Eval epoch: 3
+340it [04:37,  1.23it/s]
+Accuracy:  0.22768267991901345  model:  ./runs/smarthome_cs_agcn_rgb_joint
+[ Mon Sep 18 11:27:54 2023 ]    Mean test loss of 340 batches: 3.2605658461065854.
+[ Mon Sep 18 11:27:54 2023 ]    Top1: 22.77%
+[ Mon Sep 18 11:27:54 2023 ]    Top5: 30.17%
+[ Mon Sep 18 11:27:55 2023 ] Training epoch: 4
+274it [06:56,  3.55s/it]Connection to gadi-gpu-v100-0079.gadi.nci.org.au closed by remote host.
+Connection to gadi-gpu-v100-0079.gadi.nci.org.au closed.
+
+============================================
+** 1gpus , rgb_model with LSTM **
+
+{'work_dir': './work_dir/smarthome/xsub/agcn_rgb_joint', 'model_saved_name': './runs/smarthome_cs_agcn_rgb_joint', 'config': './config/smarthome/cross_subject/train_rgb_joint.yaml', 'phase': 'train', 'save_score': False, 'seed': 1, 'log_interval': 100, 'save_inte
+rval': 2, 'eval_interval': 5, 'print_log': True, 'show_topk': [1, 5], 'feeder': 'feeders.feeder.Feeder', 'num_worker': 32, 'train_feeder_args': {'data_path': './data/smarthome/xsub/train_data_joint.npy', 'label_path': './data/smarthome/xsub/train_label.pkl', 'deb
+ug': False, 'random_choose': False, 'random_shift': False, 'random_move': False, 'window_size': -1, 'normalization': False}, 'test_feeder_args': {'data_path': './data/smarthome/xsub/val_data_joint.npy', 'label_path': './data/smarthome/xsub/val_label.pkl'}, 'train
+_rgb_feeder_args': {'data_path': './data/smarthome/xsub/train_data_rgb_joint.npy', 'label_path': './data/smarthome/xsub/train_label.pkl', 'debug': False, 'random_choose': False, 'random_shift': False, 'random_move': False, 'window_size': -1, 'normalization': Fals
+e}, 'test_rgb_feeder_args': {'data_path': './data/smarthome/xsub/val_data_rgb_joint.npy', 'label_path': './data/smarthome/xsub/val_label.pkl'}, 'model': 'model.rgb_agcn.Model', 'model_args': {'num_class': 31, 'num_point': 15, 'num_person': 1, 'graph': 'graph.smar
+thome.Graph', 'graph_args': {'labeling_mode': 'spatial'}}, 'weights': None, 'ignore_weights': [], 'base_lr': 0.1, 'step': [30, 40], 'device': [0, 1], 'optimizer': 'SGD', 'nesterov': True, 'batch_size': 32, 'test_batch_size': 16, 'start_epoch': 0, 'num_epoch': 4,
+'weight_decay': 0.0001, 'only_train_part': False, 'only_train_epoch': 0, 'warm_up_epoch': 0}
+[ Mon Sep 18 10:27:22 2023 ] Training epoch: 1
+333it [19:00,  3.42s/it]
+[ Mon Sep 18 10:46:27 2023 ]    Mean training loss: 3.4085.
+[ Mon Sep 18 10:46:27 2023 ]    Time consumption: [Data]83%, [Network]16%
+[ Mon Sep 18 10:46:27 2023 ] Eval epoch: 1
+340it [12:01,  2.12s/it]
+Accuracy:  0.22768267991901345  model:  ./runs/smarthome_cs_agcn_rgb_joint
+[ Mon Sep 18 10:58:34 2023 ]    Mean test loss of 340 batches: 3.4030649563845468.
+[ Mon Sep 18 10:58:34 2023 ]    Top1: 22.77%
+[ Mon Sep 18 10:58:34 2023 ]    Top5: 40.55%
+[ Mon Sep 18 10:58:34 2023 ] Training epoch: 2
+333it [27:10,  4.90s/it]
+[ Mon Sep 18 11:25:51 2023 ]    Mean training loss: 3.2267.
+[ Mon Sep 18 11:25:51 2023 ]    Time consumption: [Data]83%, [Network]16%
+[ Mon Sep 18 11:25:52 2023 ] Eval epoch: 2
+340it [12:53,  2.28s/it]
+Accuracy:  0.22768267991901345  model:  ./runs/smarthome_cs_agcn_rgb_joint
+[ Mon Sep 18 11:38:50 2023 ]    Mean test loss of 340 batches: 3.2605860604959376.
+[ Mon Sep 18 11:38:50 2023 ]    Top1: 22.77%
+[ Mon Sep 18 11:38:50 2023 ]    Top5: 41.38%
+[ Mon Sep 18 11:38:51 2023 ] Training epoch: 3
+333it [28:08,  5.07s/it]
+[ Mon Sep 18 12:07:05 2023 ]    Mean training loss: 3.2230.
+[ Mon Sep 18 12:07:05 2023 ]    Time consumption: [Data]75%, [Network]24%
+[ Mon Sep 18 12:07:05 2023 ] Eval epoch: 3
+297it [12:27,  3.01it/s]Connection to gadi-gpu-v100-0029.gadi.nci.org.au closed by remote host.
+Connection to gadi-gpu-v100-0029.gadi.nci.org.au closed.
+
+
+============================================
+** 1gpus , agcn_model original code**
+
+{'work_dir': './work_dir/smarthome/xsub/agcn_rgb_joint', 'model_saved_name': './runs/smarthome_cs_agcn_rgb_joint', 'config': './config/smarthome/cross_subject/train_rgb_joint.yaml', 'phase': 'train', 'save_score': False, 'seed': 1, 'log_interval': 100, 'save_inte
+rval': 2, 'eval_interval': 5, 'print_log': True, 'show_topk': [1, 5], 'feeder': 'feeders.feeder.Feeder', 'num_worker': 32, 'train_feeder_args': {'data_path': './data/smarthome/xsub/train_data_joint.npy', 'label_path': './data/smarthome/xsub/train_label.pkl', 'deb
+ug': False, 'random_choose': False, 'random_shift': False, 'random_move': False, 'window_size': -1, 'normalization': False}, 'test_feeder_args': {'data_path': './data/smarthome/xsub/val_data_joint.npy', 'label_path': './data/smarthome/xsub/val_label.pkl'}, 'train
+_rgb_feeder_args': {'data_path': './data/smarthome/xsub/train_data_rgb_joint.npy', 'label_path': './data/smarthome/xsub/train_label.pkl', 'debug': False, 'random_choose': False, 'random_shift': False, 'random_move': False, 'window_size': -1, 'normalization': Fals
+e}, 'test_rgb_feeder_args': {'data_path': './data/smarthome/xsub/val_data_rgb_joint.npy', 'label_path': './data/smarthome/xsub/val_label.pkl'}, 'model': 'model.rgb_agcn.Model', 'model_args': {'num_class': 31, 'num_point': 15, 'num_person': 1, 'graph': 'graph.smar
+thome.Graph', 'graph_args': {'labeling_mode': 'spatial'}}, 'weights': None, 'ignore_weights': [], 'base_lr': 0.1, 'step': [30, 40], 'device': [0, 1], 'optimizer': 'SGD', 'nesterov': True, 'batch_size': 32, 'test_batch_size': 32, 'start_epoch': 0, 'num_epoch': 4,
+'weight_decay': 0.0001, 'only_train_part': False, 'only_train_epoch': 0, 'warm_up_epoch': 0}
+[ Mon Sep 18 11:59:05 2023 ] Training epoch: 1
+333it [14:49,  2.67s/it]
+[ Mon Sep 18 12:13:57 2023 ]    Mean training loss: 2.6965.
+[ Mon Sep 18 12:13:57 2023 ]    Time consumption: [Data]23%, [Network]76%
+[ Mon Sep 18 12:13:58 2023 ] Eval epoch: 1
+170it [05:10,  1.83s/it]
+Accuracy:  0.30130682863979386  model:  ./runs/smarthome_cs_agcn_rgb_joint
+[ Mon Sep 18 12:19:13 2023 ]    Mean test loss of 170 batches: 2.611976080782273.
+[ Mon Sep 18 12:19:13 2023 ]    Top1: 30.13%
+[ Mon Sep 18 12:19:13 2023 ]    Top5: 67.27%
+[ Mon Sep 18 12:19:13 2023 ] Training epoch: 2
+333it [13:28,  2.43s/it]
+[ Mon Sep 18 12:32:46 2023 ]    Mean training loss: 2.4286.
+[ Mon Sep 18 12:32:46 2023 ]    Time consumption: [Data]17%, [Network]83%
+[ Mon Sep 18 12:32:47 2023 ] Eval epoch: 2
+170it [05:20,  1.89s/it]
+Accuracy:  0.3826615129762562  model:  ./runs/smarthome_cs_agcn_rgb_joint
+[ Mon Sep 18 12:38:10 2023 ]    Mean test loss of 170 batches: 2.1779473788598005.
+[ Mon Sep 18 12:38:11 2023 ]    Top1: 38.27%
+[ Mon Sep 18 12:38:11 2023 ]    Top5: 74.73%
+[ Mon Sep 18 12:38:11 2023 ] Training epoch: 3
+
+
+============================================
+** 2 gpus , agcn_model with my training code **
+{'work_dir': './work_dir/smarthome/xsub/agcn_rgb_joint', 'model_saved_name': './runs/smarthome_cs_agcn_rgb_joint', 'config': './config/smarthome/cross_subject/train_rgb_joint.yaml', 'phase': 'train', 'save_score': False, 'seed': 1, 'log_interval': 100, 'save_interval': 2, 'eval_interval': 5, 'print_log': True, 'show_topk': [1, 5], 'feeder': 'feeders.feeder.Feeder', 'num_worker': 32, 'train_feeder_args': {'data_path': './data/smarthome/xsub/train_data_joint.npy', 'label_path': './data/smarthome/xsub/train_label.pkl', 'debug': False, 'random_choose': False, 'random_shift': False, 'random_move': False, 'window_size': -1, 'normalization': False}, 'test_feeder_args': {'data_path': './data/smarthome/xsub/val_data_joint.npy', 'label_path': './data/smarthome/xsub/val_label.pkl'}, 'train_rgb_feeder_args': {'data_path': './data/smarthome/xsub/train_data_rgb_joint.npy', 'label_path': './data/smarthome/xsub/train_label.pkl', 'debug': False, 'random_choose': False, 'random_shift': False, 'random_move': False, 'window_size': -1, 'normalization': False}, 'test_rgb_feeder_args': {'data_path': './data/smarthome/xsub/val_data_rgb_joint.npy', 'label_path': './data/smarthome/xsub/val_label.pkl'}, 'model': 'model.rgb_agcn.Model', 'model_args': {'num_class': 31, 'num_point': 15, 'num_person': 1, 'graph': 'graph.smarthome.Graph', 'graph_args': {'labeling_mode': 'spatial'}}, 'weights': None, 'ignore_weights': [], 'base_lr': 0.1, 'step': [30, 40], 'device': [0, 1], 'optimizer': 'SGD', 'nesterov': True, 'batch_size': 32, 'test_batch_size': 32, 'start_epoch': 0, 'num_epoch': 4, 'weight_decay': 0.0001, 'only_train_part': False, 'only_train_epoch': 0, 'warm_up_epoch': 0}
+
+[ Mon Sep 18 11:59:05 2023 ] Training epoch: 1
+[ Mon Sep 18 12:07:05 2023 ] 	Mean training loss: 3.2230.
+[ Mon Sep 18 12:07:05 2023 ] 	Time consumption: [Data]75%, [Network]24%
+[ Mon Sep 18 12:07:05 2023 ] Eval epoch: 3
+[ Mon Sep 18 12:13:57 2023 ] 	Mean training loss: 2.6965.
+[ Mon Sep 18 12:13:57 2023 ] 	Time consumption: [Data]23%, [Network]76%
+[ Mon Sep 18 12:13:58 2023 ] Eval epoch: 1
+[ Mon Sep 18 12:19:13 2023 ] 	Mean test loss of 170 batches: 2.611976080782273.
+[ Mon Sep 18 12:19:13 2023 ] 	Top1: 30.13%
+[ Mon Sep 18 12:19:13 2023 ] 	Top5: 67.27%
+[ Mon Sep 18 12:19:13 2023 ] Training epoch: 2
+[ Mon Sep 18 12:32:46 2023 ] 	Mean training loss: 2.4286.
+[ Mon Sep 18 12:32:46 2023 ] 	Time consumption: [Data]17%, [Network]83%
+[ Mon Sep 18 12:32:47 2023 ] Eval epoch: 2
+[ Mon Sep 18 12:38:10 2023 ] 	Mean test loss of 170 batches: 2.1779473788598005.
+[ Mon Sep 18 12:38:11 2023 ] 	Top1: 38.27%
+[ Mon Sep 18 12:38:11 2023 ] 	Top5: 74.73%
+[ Mon Sep 18 12:38:11 2023 ] Training epoch: 3
+[ Mon Sep 18 12:51:40 2023 ] 	Mean training loss: 2.1247.
+[ Mon Sep 18 12:51:40 2023 ] 	Time consumption: [Data]18%, [Network]82%
+[ Mon Sep 18 12:51:41 2023 ] Eval epoch: 3
+[ Mon Sep 18 12:57:02 2023 ] 	Mean test loss of 170 batches: 2.010569869069492.
+[ Mon Sep 18 12:57:03 2023 ] 	Top1: 42.70%
+[ Mon Sep 18 12:57:03 2023 ] 	Top5: 79.20%
+[ Mon Sep 18 12:57:03 2023 ] Training epoch: 4
+[ Mon Sep 18 13:10:31 2023 ] 	Mean training loss: 1.9890.
+[ Mon Sep 18 13:10:31 2023 ] 	Time consumption: [Data]18%, [Network]82%
+[ Mon Sep 18 13:10:32 2023 ] Eval epoch: 4
+[ Mon Sep 18 15:01:45 2023 ] using warm up, epoch: 0
+[ Mon Sep 18 15:01:45 2023 ] Parameters:
+
+
+============================================
+with AGCN model without temporal aspect
+
+'work_dir': './work_dir/smarthome/xsub/agcn_rgb_joint', 'model_saved_name': './runs/smarthome_cs_agcn_rgb_joint', 'config': './config/smarthome/cross_subject/train_rgb_joint.yaml', 'phase': 'train', 'save_score': False, 'seed': 1, 'log_interval': 100, 'save_inte
+rval': 2, 'eval_interval': 5, 'print_log': True, 'show_topk': [1, 5], 'feeder': 'feeders.feeder.Feeder', 'num_worker': 32, 'train_feeder_args': {'data_path': './data/smarthome/xsub/train_data_joint.npy', 'label_path': './data/smarthome/xsub/train_label.pkl', 'deb
+ug': False, 'random_choose': False, 'random_shift': False, 'random_move': False, 'window_size': -1, 'normalization': False}, 'test_feeder_args': {'data_path': './data/smarthome/xsub/val_data_joint.npy', 'label_path': './data/smarthome/xsub/val_label.pkl'}, 'train
+_rgb_feeder_args': {'data_path': './data/smarthome/xsub/train_data_rgb_joint.npy', 'label_path': './data/smarthome/xsub/train_label.pkl', 'debug': False, 'random_choose': False, 'random_shift': False, 'random_move': False, 'window_size': -1, 'normalization': Fals
+e}, 'test_rgb_feeder_args': {'data_path': './data/smarthome/xsub/val_data_rgb_joint.npy', 'label_path': './data/smarthome/xsub/val_label.pkl'}, 'model': 'model.rgb_agcn.Model', 'model_args': {'num_class': 31, 'num_point': 15, 'num_person': 1, 'graph': 'graph.smar
+thome.Graph', 'graph_args': {'labeling_mode': 'spatial'}}, 'weights': None, 'ignore_weights': [], 'base_lr': 0.1, 'step': [30, 40], 'device': [0, 1], 'optimizer': 'SGD', 'nesterov': True, 'batch_size': 16, 'test_batch_size': 16, 'start_epoch': 0, 'num_epoch': 4,
+'weight_decay': 0.0001, 'only_train_part': False, 'only_train_epoch': 0, 'warm_up_epoch': 0}
+[ Fri Sep 22 11:42:37 2023 ] Training epoch: 1
+667it [40:53,  3.68s/it]
+[ Fri Sep 22 12:23:33 2023 ]    Mean training loss: 2.4795.
+[ Fri Sep 22 12:23:33 2023 ]    Time consumption: [Data]04%, [Network]95%
+[ Fri Sep 22 12:23:34 2023 ] Eval epoch: 1
+340it [05:15,  1.08it/s]
+Accuracy:  0.3325970918461255  model:  ./runs/smarthome_cs_agcn_rgb_joint
+[ Fri Sep 22 12:28:53 2023 ]    Mean test loss of 340 batches: 2.413012832403183.
+[ Fri Sep 22 12:28:53 2023 ]    Top1: 33.26%
+[ Fri Sep 22 12:28:54 2023 ]    Top5: 71.89%
+[ Fri Sep 22 12:28:54 2023 ] Training epoch: 2
+667it [45:12,  4.07s/it]
+[ Fri Sep 22 13:14:11 2023 ]    Mean training loss: 2.1561.
+[ Fri Sep 22 13:14:11 2023 ]    Time consumption: [Data]05%, [Network]92%
+[ Fri Sep 22 13:14:11 2023 ] Eval epoch: 2
+340it [05:08,  1.10it/s]
+Accuracy:  0.41984170808025034  model:  ./runs/smarthome_cs_agcn_rgb_joint
+[ Fri Sep 22 13:19:23 2023 ]    Mean test loss of 340 batches: 2.0983342388096977.
+[ Fri Sep 22 13:19:23 2023 ]    Top1: 41.98%
+[ Fri Sep 22 13:19:23 2023 ]    Top5: 78.80%
+[ Fri Sep 22 13:19:23 2023 ] Training epoch: 3
+
+=============================================================
+
+** My model wth 2 gppu s skeleton input with AGCN - without temporal compoenent - onlly GCN + LSTM unit
+
+
+
+{'work_dir': './work_dir/smarthome/xsub/agcn_rgb_joint', 'model_saved_name': './runs/smarthome_cs_agcn_rgb_joint', 'config': './config/smarthome/cross_subject/train_rgb_joint.yaml', 'phase': 'train', 'save_score': False, 'seed': 1, 'log_interval': 100, 'save_inte
+rval': 2, 'eval_interval': 5, 'print_log': True, 'show_topk': [1, 5], 'feeder': 'feeders.feeder.Feeder', 'num_worker': 32, 'train_feeder_args': {'data_path': './data/smarthome/xsub/train_data_joint.npy', 'label_path': './data/smarthome/xsub/train_label.pkl', 'deb
+ug': False, 'random_choose': False, 'random_shift': False, 'random_move': False, 'window_size': -1, 'normalization': False}, 'test_feeder_args': {'data_path': './data/smarthome/xsub/val_data_joint.npy', 'label_path': './data/smarthome/xsub/val_label.pkl'}, 'train
+_rgb_feeder_args': {'data_path': './data/smarthome/xsub/train_data_rgb_joint.npy', 'label_path': './data/smarthome/xsub/train_label.pkl', 'debug': False, 'random_choose': False, 'random_shift': False, 'random_move': False, 'window_size': -1, 'normalization': Fals
+e}, 'test_rgb_feeder_args': {'data_path': './data/smarthome/xsub/val_data_rgb_joint.npy', 'label_path': './data/smarthome/xsub/val_label.pkl'}, 'model': 'model.rgb_agcn.Model', 'model_args': {'num_class': 31, 'num_point': 15, 'num_person': 1, 'graph': 'graph.smar
+thome.Graph', 'graph_args': {'labeling_mode': 'spatial'}}, 'weights': None, 'ignore_weights': [], 'base_lr': 0.1, 'step': [30, 40], 'device': [0, 1], 'optimizer': 'SGD', 'nesterov': True, 'batch_size': 16, 'test_batch_size': 16, 'start_epoch': 0, 'num_epoch': 4,
+'weight_decay': 0.0001, 'only_train_part': False, 'only_train_epoch': 0, 'warm_up_epoch': 0}
+[ Sat Sep 23 18:37:17 2023 ] Training epoch: 1
+667it [33:15,  2.99s/it]
+[ Sat Sep 23 19:10:35 2023 ]    Mean training loss: 2.8108.
+[ Sat Sep 23 19:10:35 2023 ]    Time consumption: [Data]05%, [Network]95%
+[ Sat Sep 23 19:10:35 2023 ] Eval epoch: 1
+340it [04:57,  1.14it/s]
+Accuracy:  0.22768267991901345  model:  ./runs/smarthome_cs_agcn_rgb_joint
+[ Sat Sep 23 19:15:36 2023 ]    Mean test loss of 340 batches: 2.814576073253856.
+[ Sat Sep 23 19:15:36 2023 ]    Top1: 22.77%
+[ Sat Sep 23 19:15:36 2023 ]    Top5: 56.58%
+[ Sat Sep 23 19:15:36 2023 ] Training epoch: 2
+667it [32:59,  2.97s/it]
+[ Sat Sep 23 19:48:38 2023 ]    Mean training loss: 2.7728.
+[ Sat Sep 23 19:48:38 2023 ]    Time consumption: [Data]04%, [Network]96%
+[ Sat Sep 23 19:48:39 2023 ] Eval epoch: 2
+340it [05:13,  1.09it/s]
+Accuracy:  0.319528805448187  model:  ./runs/smarthome_cs_agcn_rgb_joint
+[ Sat Sep 23 19:53:55 2023 ]    Mean test loss of 340 batches: 2.6245030438198764.
+[ Sat Sep 23 19:53:55 2023 ]    Top1: 31.95%
+[ Sat Sep 23 19:53:55 2023 ]    Top5: 64.18%
+[ Sat Sep 23 19:53:55 2023 ] Training epoch: 3
+667it [33:03,  2.97s/it]
+[ Sat Sep 23 20:27:02 2023 ]    Mean training loss: 2.0174.
+[ Sat Sep 23 20:27:02 2023 ]    Time consumption: [Data]05%, [Network]95%
+[ Sat Sep 23 20:27:02 2023 ] Eval epoch: 3
+340it [05:01,  1.13it/s]
+Accuracy:  0.5142646788146512  model:  ./runs/smarthome_cs_agcn_rgb_joint
+[ Sat Sep 23 20:32:07 2023 ]    Mean test loss of 340 batches: 1.7239457579220043.
+[ Sat Sep 23 20:32:07 2023 ]    Top1: 51.43%
+[ Sat Sep 23 20:32:07 2023 ]    Top5: 84.70%
+[ Sat Sep 23 20:32:07 2023 ] Training epoch: 4
+667it [33:10,  2.98s/it]
+[ Sat Sep 23 21:05:21 2023 ]    Mean training loss: 1.7666.
+[ Sat Sep 23 21:05:25 2023 ]    Time consumption: [Data]05%, [Network]95%
+[ Sat Sep 23 21:05:26 2023 ] Eval epoch: 4
+340it [05:05,  1.11it/s]
+Accuracy:  0.4905208908521995  model:  ./runs/smarthome_cs_agcn_rgb_joint
+[ Sat Sep 23 21:10:35 2023 ]    Mean test loss of 340 batches: 1.775926400107496.
+[ Sat Sep 23 21:10:35 2023 ]    Top1: 49.05%
+[ Sat Sep 23 21:10:35 2023 ]    Top5: 84.74%
+best accuracy:  0.5142646788146512  model_name:  ./runs/smarthome_cs_agcn_rgb_joint
+
+===========================================================
+** My model wth 2 gppu s skeleton input with AGCN - without temporal compoenent - onlly GCN + RGB units + LSTM unit
+
+[ Sun Sep 24 00:27:32 2023 ] Training epoch: 1
+[ Sun Sep 24 01:11:56 2023 ] using warm up, epoch: 0
+[ Sun Sep 24 01:11:57 2023 ] Parameters:
+{'work_dir': './work_dir/smarthome/xsub/agcn_rgb_lstm_joint', 'model_saved_name': './runs/smarthome_cs_agcn_rgb_lstm_joint', 'config': './config/smarthome/cross_subject/train_rgb_lstm.yaml', 'phase': 'train', 'save_score': False, 'seed': 1, 'log_interval': 100, 'save_interval': 2, 'eval_interval': 5, 'print_log': True, 'show_topk': [1, 5], 'feeder': 'feeders.feeder.Feeder', 'num_worker': 32, 'train_feeder_args': {'data_path': './data/smarthome/xsub/train_data_joint.npy', 'label_path': './data/smarthome/xsub/train_label.pkl', 'debug': False, 'random_choose': False, 'random_shift': False, 'random_move': False, 'window_size': -1, 'normalization': False}, 'test_feeder_args': {'data_path': './data/smarthome/xsub/val_data_joint.npy', 'label_path': './data/smarthome/xsub/val_label.pkl'}, 'train_rgb_feeder_args': {'data_path': './data/smarthome/xsub/train_data_rgb_joint.npy', 'label_path': './data/smarthome/xsub/train_label.pkl', 'debug': False, 'random_choose': False, 'random_shift': False, 'random_move': False, 'window_size': -1, 'normalization': False}, 'test_rgb_feeder_args': {'data_path': './data/smarthome/xsub/val_data_rgb_joint.npy', 'label_path': './data/smarthome/xsub/val_label.pkl'}, 'model': 'model.rgb_lstm_agcn.Model', 'model_args': {'num_class': 31, 'num_point': 15, 'num_person': 1, 'graph': 'graph.smarthome.Graph', 'graph_args': {'labeling_mode': 'spatial'}}, 'weights': None, 'ignore_weights': [], 'base_lr': 0.1, 'step': [30, 40], 'device': [0, 1], 'optimizer': 'SGD', 'nesterov': True, 'batch_size': 16, 'test_batch_size': 16, 'start_epoch': 0, 'num_epoch': 3, 'weight_decay': 0.0001, 'only_train_part': False, 'only_train_epoch': 0, 'warm_up_epoch': 0}
+
+[ Sun Sep 24 01:11:57 2023 ] Training epoch: 1
+[ Sun Sep 24 01:46:01 2023 ] 	Mean training loss: 2.8113.
+[ Sun Sep 24 01:46:01 2023 ] 	Time consumption: [Data]05%, [Network]95%
+[ Sun Sep 24 01:46:01 2023 ] Eval epoch: 1
+[ Sun Sep 24 01:51:19 2023 ] 	Mean test loss of 340 batches: 2.8251629864468293.
+[ Sun Sep 24 01:51:19 2023 ] 	Top1: 22.77%
+[ Sun Sep 24 01:51:19 2023 ] 	Top5: 56.58%
+[ Sun Sep 24 01:51:19 2023 ] Training epoch: 2
+[ Sun Sep 24 02:24:45 2023 ] 	Mean training loss: 2.6287.
+[ Sun Sep 24 02:24:45 2023 ] 	Time consumption: [Data]05%, [Network]95%
+[ Sun Sep 24 02:24:45 2023 ] Eval epoch: 2
+[ Sun Sep 24 02:29:51 2023 ] 	Mean test loss of 340 batches: 2.236369702745886.
+[ Sun Sep 24 02:29:51 2023 ] 	Top1: 37.62%
+[ Sun Sep 24 02:29:51 2023 ] 	Top5: 76.77%
+[ Sun Sep 24 02:29:51 2023 ] Training epoch: 3
+[ Sun Sep 24 03:03:10 2023 ] 	Mean training loss: 1.9148.
+[ Sun Sep 24 03:03:10 2023 ] 	Time consumption: [Data]05%, [Network]95%
+[ Sun Sep 24 03:03:10 2023 ] Eval epoch: 3
+[ Sun Sep 24 03:08:05 2023 ] 	Mean test loss of 340 batches: 1.6790037759963203.
+[ Sun Sep 24 03:08:05 2023 ] 	Top1: 51.48%
+[ Sun Sep 24 03:08:05 2023 ] 	Top5: 85.61%

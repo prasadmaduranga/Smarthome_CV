@@ -3,8 +3,6 @@ model_saved_name: ./runs/smarthome_cs_agcn_rgb_joint
 # feeder
 feeder: feeders.feeder.Feeder
 train_feeder_args:
-#  data_path: ./data/smarthome/xsub/train_data_rgb_joint.npy
-#  label_path: ./data/smarthome/xsub/train_rgb_joint_label.pkl
   data_path: ./data/smarthome/xsub/train_data_joint.npy
   label_path: ./data/smarthome/xsub/train_label.pkl
   debug: False
@@ -14,10 +12,22 @@ train_feeder_args:
   window_size: -1
   normalization: False
 
+train_rgb_feeder_args:
+  data_path: ./data/smarthome/xsub/train_data_rgb_joint.npy
+  label_path: ./data/smarthome/xsub/train_label.pkl
+  debug: False
+  random_choose: False
+  random_shift: False
+  random_move: False
+  window_size: -1
+  normalization: False
+
 test_feeder_args:
-#  data_path: ./data/smarthome/xsub/val_data_rgb_joint.npy
-#  label_path: ./data/smarthome/xsub/val_rgb_joint_label.pkl
   data_path: ./data/smarthome/xsub/val_data_joint.npy
+  label_path: ./data/smarthome/xsub/val_label.pkl
+
+test_rgb_feeder_args:
+  data_path: ./data/smarthome/xsub/val_data_rgb_joint.npy
   label_path: ./data/smarthome/xsub/val_label.pkl
 
 # model
@@ -36,9 +46,10 @@ base_lr: 0.1
 step: [30, 40]
 
 # training
-device: [0, 1, 2, 3]
-batch_size: 16
+# Update based on the nmber f GPU s available
+device: [0, 1]
+batch_size: 8
 test_batch_size: 16
 # num_epoch: 60
-num_epoch: 5
+num_epoch: 3
 nesterov: True
