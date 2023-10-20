@@ -1,0 +1,355 @@
+Abstract
+
+
+In skeleton-based action recognition, graph convolutional networks (GCNs), which model the human body skeletons as spatiotemporal graphs, have achieved remarkable performance.
+
+In this paper, we focus on the spatio-temporal aspect of recognizing Activities of Daily Living (ADL). ADL have two specific properties (i) subtle spatio-temporal patterns and (ii) similar visual patterns varying with time. [VPN paper]
+
+
+Why AGCN works 
+However, in existing GCN-based methods, the topology of the graph is set manually, and it is fixed over all layers and input samples. This may not be optimal for the hierarchical GCN and diverse samples in action recognition tasks. In addition, the second-order information (the lengths and directions of bones) of the skeleton data, which is naturally more informative and discriminative for action recognition, is rarely investigated in existing methods. In this work, we propose a novel two-stream adaptive graph convolutional network (2s-AGCN) for skeletonbased action recognition. The topology of the graph in our model can be either uniformly or individually learned by the BP algorithm in an end-to-end manner. This data-driven method increases the flexibility of the model for graph construction and brings more generality to adapt to various data samples.
+[AGCN paper]
+
+Highlihgt the the novelty of our approach
+Existing  approaches handle the spatial and temporal convolution in parrelel where in our approach we handle spatial graph convolutin and temporal apects sequentially. 
+
+
+
+Extensive experiments on the two large-scale datasets, NTU-RGBD and KineticsSkeleton, demonstrate that the performance of our model exceeds the state-of-the-art with a significant margin.
+
+
+
+
+
+Intrtoduction 
+
+Monitoring human behavior requires fine-grained understanding of actions. Activities of Daily Living (ADL) may look simple but their recognition is often more challenging than activities present in sport, movie or Youtube videos. ADL often have very low inter-class variance making the task of discriminating them
+from one another very challenging. The challenges characterizing ADL are illustrated in Fig. 1: (i) short and subtle actions like pouring water and pouring grain while making coffee; (ii) actions exhibiting similar visual patterns while differing in motion patterns like rubbing hands and clapping; and finally, (iii) actions observed from different camera views. In the recent literature, the main focus is the recognition of actions from internet videos [5,12,13,53,54] and very few studies have attempted to recognize ADL in indoor scenarios [4,8,16].
+[VPN paper]
+
+
+Following a different direction, action recognition for ADL has been dominated by the use of human 3D poses [56,57]. They provide a strong clue for understanding the visual patterns of an action over time. 3D poses are robust to illumination changes, view adaptive and provide critical geometric information about human actions. However, they lack incorporating the appearance information which is an essential property in ADL (especially for human-object interaction).
+[VPN paper]
+
+
+Consequently, attempts have been made to utilize 3D poses to weight the discriminative parts of a RGB feature map [2–4,7,8]. These methods have improved the action recognition performance but they do not take into account the alignment of the RGB cues and the corresponding 3D poses. Therefore, we propose a spatial embedding to project the visual features and the 3D poses in the same referential. Before describing our contribution, we answer two intuitive questions below
+[VPN paper]
+
+
+Action recognition methods based on skeleton data have been widely investigated and attracted considerable attention due to their strong adaptability to the dynamic circumstance and complicated background [31, 8, 6, 27, 22, 29, 33, 19, 20, 21, 14, 13, 23, 18, 17, 32, 30, 34]. Conventional *Corresponding Author deep-learning-based methods manually structure the skeleton as a sequence of joint-coordinate vectors [6, 27, 22, 29, 33, 19, 20] or as a pseudo-image [21, 14, 13, 23, 18, 17], which is fed into RNNs or CNNs to generate the prediction. However, representing the skeleton data as a vector sequence or a 2D grid cannot fully express the dependency between correlated joints. The skeleton is naturally structured as a graph in a non-Euclidean space with the joints as vertexes and their natural connections in the human body as edges. The previous methods cannot exploit the graph structure of the skeleton data and are difficult to generalize to skeletons with arbitrary forms. Recently, graph convolutional networks (GCNs), which generalize convolution from image to graph, have been successfully adopted in many applications[16, 7, 25, 1, 9, 24, 15]. For the skeletonbased action recognition task, Yan et al. [32] first apply GCNs to model the skeleton data. They construct a spatial graph based on the natural connections of joints in the human body and add the temporal edges between corresponding joints in consecutive frames. A distance-based sampling function is proposed for constructing the graph convolutional layer, which is then employed as a basic module to build the final spatiotemporal graph convolutional network (ST-GCN).[AGCN paper]
+
+
+
+
+However, there are three disadvantages for the process of the graph construction in ST-GCN [32]: (1) The skeleton graph employed in ST-GCN is heuristically predefined and represents only the physical structure of the human body. Thus it is not guaranteed to be optimal for the action recognition task. For example, the relationship between the two hands is important for recognizing classes such as “clapping” and “reading.” However, it is difficult for ST-GCN to capture the dependency between the two hands since they are located far away from each other in the predefined human-body-based graphs. (2) The structure of GCNs is hierarchical where different layers contain multilevel semantic information. However, the topology of the graph applied in ST-GCN is fixed over all the layers, which lacks the flexibility and capacity to model the multilevel semantic information contained in all of the layers; (3) One fixed graph structure may not be optimal for all the samples of different action classes. For classes such as “wiping face” and “touching head”, the connection between the hands and head should be stronger, but it is not true for some other classes, such as “jumping up” and “sitting down”. This fact suggests that the graph structure should be data dependent, which, however, is not supported in ST-GCN 
+To solve the above problems, a novel adaptive graph convolutional network is proposed in this work. It parameterizes two types of graphs, the structure of which are trained and updated jointly with convolutional parameters of the model. One type is a global graph, which represents the common pattern for all the data. Another type is an individual graph, which represents the unique pattern for each data. Both of the two types of graphs are optimized individually for different layers, which can better fit the hierarchical structure of the model. This data-driven method increases the flexibility of the model for graph construction and brings more generality to adapt to various data samples.
+[This section highlights the issues of SST GCN - so summarise this section and say why we are using the AGCN approach]
+[AGCN paper]
+
+
+Highlight the fact of handling spatiality and temporality factors separaetly 
+importance of fusing other modalitites into the the spatial representation 
+
+
+To verify the superiority of the proposed model, namely, the two-stream adaptive graph convolutional network (2s-AGCN), extensive experiments are performed on two large-scale datasets: NTU-RGBD [27] and KineticsSkeleton [12]. Our model achieves state-of-the-art performance on both of the datasets.
+
+
+The main contributions of our work lie in three folds: (1) An adaptive graph convolutional network is proposed to adaptively learn the topology of the graph for different GCN layers and skeleton samples in an end-to-end manner, which can better suit the action recognition task and the hierarchical structure of the GCNs. (2) The secondorder information of the skeleton data is explicitly formulated and combined with the first-order information using a two-stream framework, which brings notable improvement for the recognition performance. (3) On two large-scale datasets for skeleton-based action recognition, the proposed 2s-AGCN exceeds the state-of-the-art by a significant margin. The code will be released for future work and to facilitate communication1.
+[AGCN paper]
+
+
+
+
+
+First, Why is Spatial Embedding Important? 
+to identify context related information in the frame
+
+Second, Why Not Performing Temporal Embedding?
+
+they argue thatt temporal embedding is not needed. insted spatial + attenttion mechanism 
+
+
+Why Temporal embedding is important ? 
+
+
+
+
+Related Work
+
+
+
+Below, we discuss the relevant action recognition algorithms w.r.t. their input modalities.
+
+
+RGB methods : 
+Traditionally, image level features [49,50] have been aggregated over time using encoding techniques like Fisher Vector [34]andNetVLAD[1]. But these video descriptors do not encode long-range temporal information. Then, temporal patterns of actions have been modelled in videos using sequential networks. These sequential networks like LSTMs are fed with convolutional features from images [10] and thus, they model the temporal information based on the evolution of appearance of the human actions. However, these methods first process the image level features and then capture their temporal evolution preventing the computation of joint spatio-temporal patterns over time.
+Due to this reason, Du et al. [48] have proposed 3D convolution to model the spatio-temporal patterns within an action. The 3D kernels provide tight coupling of space and time towards better action classification. Later on, holistic methods like I3D [5], slow-fast network [12], MARS [6] and two-in-one stream network [59] have been fabricated for generic datasets like Kinetics [17] and UCF-101 [45]. But these networks are trained globally over the whole 3D volume of a video and thus, are too rigid to capture salient features for subtle spatio-temporal patterns for ADL.Due to this reason, Du et al. [48] have proposed 3D convolution to model the spatio-temporal patterns within an action. The 3D kernels provide tight coupling of space and time towards better action classification. Later on, holistic methods like I3D [5], slow-fast network [12], MARS [6] and two-in-one stream network [59] have been fabricated for generic datasets like Kinetics [17] and UCF-101 [45]. But these networks are trained globally over the whole 3D volume of a video and thus, are too rigid to capture salient features for subtle spatio-temporal patterns for ADL.
+
+
+
+
+3D Poses  :
+3D Poses. To focus on the view-invariant challenge, temporal evolution of 3D poses have been leveraged through sequential networks like LSTM and GRU for skeleton based action recognition [26,56,57]. Taking a step ahead, LSTMs have also been used for spatial and temporal attention mechanisms to focus on the salient human joints and key temporal frames [44]. Another framework represents 3D poses as pseudo image to leverage the successful image classification CNNs for action classification [11,27]. Recently, graph-based methods model the data as a graph with joints as vertexes and bones as edges [40,47,55]. Compared to sequential networks and pseudo image based methods, graph-based methods make use of the spatial configuration of the human body joints and thus, are more effective. However, the skeleton based action recognition lacks in encoding the appearance information which is critical for ADL recognition.[VPN paper]
+
+skeleton based action recognition
+
+Conventional methods for skeleton-based action recognition usually design handcrafted features to model the human body [31, 8]. However, the performance of these handcrafted-feature-based methods is barely satisfactory since it cannot consider all factors at the same time. With the development of deep learning, data-driven methods have become the mainstream methods, where the most widely used models are RNNs and CNNs. RNN-based methods usually model the skeleton data as a sequence of the coordinate vectors each represents a human body joint [6, 27, 22, 29, 33, 19, 20, 3]. CNN-based methods model the skeleton data as a pseudo-image based on the manually designed transformation rules [21, 14, 13, 23, 18, 17]. The CNNbased methods are generally more popular than RNN-based methods because the CNNs have better parallelizability and are easier to train than RNNs. However, both RNNs and CNNs fail to fully represent the structure of the skeleton data because the skeleton data are naturally embedded in the form of graphs rather than a vector sequence or 2D grids. Recently, Yan et al. [32] propose a spatiotemporal graph convolutional network (STGCN) to directly model the skeleton data as the graph structure. It eliminates the need for designing handcrafted part assignment or traversal rules, thus achieves better performance than previous methods
+[AGCN paper]
+
+
+
+RGB + 3D Poses : 
+
+In order to make use of the pros of both modalities, i.e. RGB and 3D Poses, it is desirable to fuse these multi-modal information into an integrated set of discriminative features. As these modalities are heterogeneous, they must be processed by different kinds of network to show their effectiveness. This limits their performance in simple multi-modal fusion strategy [23,30,38]. As a consequence, many pose driven attention mechanisms have been proposed to guide the RGB cues for action recognition. In [2–4], the pose driven attention networks implemented through LSTMs, focus on the salient image features and the key frames. Then, with the success of 3D CNNs, 3D poses have been exploited to compute the attention weights of a spatio-temporal feature map. Das et al. [7] have proposed a spatial attention mechanism on top of 3D ConvNets to weight the pertinent human body parts relevant for an action. Then, authors in [8] have proposed a more general spatial and temporal attention mechanism in a dissociated manner. But these methods have the following drawbacks: (i) there is no accurate correspondence between the 3D poses and the RGB cues in the process of computing the attention weights [2–4,7,8]; (ii) the attentionsub-networks [2–4,7,8] neglect the topology of the human body while computing the attention weights; (iii) the attention weights in [7,8] provide identical spatial attention along the video. As a result, action pairs with similar appearance like jumping and hopping are mis-classified
+[VPN paper]
+
+
+
+
+
+
+
+
+
+
+
+
+Highlight the contribution and the novelty :
+In contrast, we propose a new spatial embedding to enforce the correspondences between RGB and 3D pose which has been missing in the state-of-the-art methods. The embedding is built upon an end-to-end learnable attention network. The attention network considers the human topology to better activate the relevant body joints for computing the attention weights. To the best of our knowledge, none of the previous action recognition methods have combined human topology with RGB cues. In addition, the proposed attention network couples the spatial and temporal attention weights in order to provide spatial attention weights varying along time.
+[VPN paper]
+
+
+
+=======================
+
+
+
+=======================
+
+
+
+Proposed Action recognition Model / Implementation
+
+
+(image explainign the model)
+
+Our objective is to design an accurate spatial embedding of poses and visual content to better extract the discriminative spatio-temporal patterns. As shown in Fig. 3, the input of our proposed recognition model are the RGB images and their 3D poses. The 3D poses are either extracted from depth sensor or from RGB using LCRNet [37]. The proposed Video-Pose Network VPN takes as input the visual feature map and the 3D poses. Below, we discuss the action recognition model in details.
+[VPN paper]
+
+
+Graph convolutional neural networks
+
+There have been many works on graph convolution, and the principle of constructing GCNs mainly follows two streams: spatial perspective and spectral perspective [28, 2, 11, 25, 1, 16, 7, 5, 9, 24, 15]. Spatial perspective methods directly perform the convolution filters on the graph vertexes and their neighbors, which are extracted and normalized based on manually designed rules [7, 25, 9, 24, 15]. In contrast to the spatial perspective methods, spectral perspective methods utilize the eigenvalues and eigenvectors of the graph Laplace matrices. These methods perform the graph convolution in the frequency domain with the help of the graph Fourier transform [28], which does not need to extract locally connected regions from graphs at each convolutional step [2, 11, 16, 5]. This work follows the spatial perspective methods.[AGCN paper]
+
+
+Graph construction
+The raw skeleton data in one frame are always provided as a sequence of vectors. Each vector represents the 2D or 3D coordinates of the corresponding human joint. A complete action contains multiple frames with different lengths for different samples. We employ a spatiotemporal graph to model the structured information among these joints along both the spatial and temporal dimensions. The structure of the graph follows the work of ST-GCN [32]. The left sketch in Fig. 1 presents an example of the constructed spatiotemporal skeleton graph, where the joints are represented as vertexes and their natural connections in the human body are represented as spatial edges (the orange lines in Fig. 1, left). For the temporal dimension, the corresponding joints between two adjacent frames are connected with temporal edges (the blue lines in Fig. 1, left). The coordinate vector of each joint is set as the attribute of the corresponding vertex.
+[AGCN paper]
+
+[Figure explains the graph constructiion]
+
+
+[This section describes the parts taken from the ]
+Graph convolution
+Given the graph defined above, multiple layers of spatiotemporal graph convolution operations are applied on the graph to extract the high-level features. The global average pooling layer and the sof tmax classifier are then employed to predict the action categories based on the extracted features. In the spatial dimension, the graph convolution operation on vertex vi is formulated as [32]:
+
+fout(vi) = ∑ vj ∈Bi 1 Zij fin(vj) · w(li(vj)) (1)
+
+where f denotes the feature map and v denotes the vertex of the graph. Bi denotes the sampling area of the convolution for vi, which is defined as the 1-distance neighbor vertexes (vj) of the target vertex (vi). w is the weighting function similar to the original convolution operation, which provides a weight vector based on the given input. Note that the number of weight vectors of convolution is fixed, while the number of vertexes in Bi is varied. To map each vertex with a unique weight vector, a mapping function li is designed specially in ST-GCN [32]. The right sketch in Fig. 1 shows this strategy, where × represents the center of gravity of the skeleton. Bi is the area enclosed by the curve. In detail, the strategy empirically sets the kernel size as 3 and naturally divides Bi into 3 subsets: Si1 is the vertex itself (the red circle in Fig. 1, right); Si2 is the centripetal subset, which contains the neighboring vertexes that are closer to the center of gravity (the green circle); Si3 is the centrifugal subset, which contains the neighboring vertexes that are farther from the center of gravity (the blue circle). Zij denotes the cardinality of Sik that contains vj. It aims to balance the contribution of each subset.[AGCN paper]
+
+
+Spatial Convolution
+
+Implementation The implementation of the graph convolution in the spatial dimension is not straightforward. Concretely, the feature map of the network is actually a C × T × N tensor, where N denotes the number of vertexes, T denotes the temporal length and C denotes the number of channels. To implement the ST-GCN, Eq. 1 is transformed into fout = Kv ∑ k Wk(finAk)  Mk (2) where Kv denotes the kernel size of the spatial dimension. With the partition strategy designed above, Kv is set to 3. Ak = Λ− 1 2 k ̄ AkΛ− 1 2 k , where  ̄ Ak is similar to the N × N adjacency matrix, and its element  ̄ Aij k indicates whether the vertex vj is in the subset Sik of vertex vi. It is used to extract the connected vertexes in a particular subset from fin for the corresponding weight vector. Λii k =∑ j( ̄ Aij k ) + α is the normalized diagonal matrix. α is set to 0.001 to avoid empty rows. Wk is the Cout × Cin × 1 × 1 weight vector of the 1 × 1 convolution operation, which represents the weighting function w in Eq. 1. Mk is an N × N attention map that indicates the importance of each vertex.  denotes the dot product.
+[AGCN paper]
+
+
+Adaptive Graph convolution
+
+The spatiotemporal graph convolution for the skeleton data described above is calculated based on a predefined graph, which may not be the best choice as explained in Sec. 1. To solve this problem, we propose an adaptive graph convolutional layer. It makes the topology of the graph optimized together with the other parameters of the network in an end-to-end learning manner. The graph is unique for different layers and samples, which greatly increases the flexibility of the model. Meanwhile, it is designed as a residual branch, which guarantees the stability of the original model. In detail, according to Eq. 2, the topology of the graph is actually decided by the adjacency matrix and the mask, i.e., Ak and Mk, respectively. Ak determines whether there are connections between two vertexes and Mk determines the strength of the connections. To make the graph structure adaptive, we change Eq. 2 into the following form:
+[AGCN paper]
+
+fout = Kv ∑ k Wkfin(Ak + Bk + Ck) (3) The main difference lies in the adjacency matrix of the graph, which is divided into three parts: Ak, Bk and Ck. The first part (Ak) is the same as the original normalized N × N adjacency matrix Ak in Eq. 2. It represents the physical structure of the human body. The second part (Bk) is also an N × N adjacency matrix. In contrast to Ak, the elements of Bk are parameterized and optimized together with the other parameters in the training process. There are no constraints on the value of Bk, which means that the graph is completely learned according to the training data. With this data-driven manner, the model can learn graphs that are fully targeted to the recognition task and more individualized for different information contained in different layers. Note that the element in the matrix can be an arbitrary value. It indicates not only the existence of the connections between two joints but also the strength of the connections. It can play the same role of the attention mechanism performed by Mk in Eq. 2However, the original attention matrix Mk is dot multiplied to Ak, which means that if one of the elements in Ak is 0, it will always be 0 irrespective the value of Mk. Thus, it cannot generate the new connections that not exist in the original physical graph. From this perspective, Bk is more flexible than Mk.
+The third part (Ck) is a data-dependent graph which learn a unique graph for each sample. To determine whether there is a connection between two vertexes and how strong the connection is, we apply the normalized embedded Gaussian function to calculate the similarity of the two vertexes
+[AGCN paper]
+
+
+where N is the total number of the vertexes. We use the dot product to measure the similarity of the two vertexes in an embedding space. In detail, given the input feature map fin whose size is Cin×T ×N , we first embed it into Ce×T ×N with two embedding functions, i.e., θ and φ. Here, through extensive experiments, we choose one 1 × 1 convolutional layer as the embedding function. The two embedded feature maps are rearranged and reshaped to an N ×CeT matrix and a CeT × N matrix. They are then multiplied to obtain an N × N similarity matrix Ck, whose element Cij k represents the similarity of vertex vi and vertex vj. The value of the matrix is normalized to 0 − 1, which is used as the soft edge of the two vertexes. Since the normalized Gaussian is equipped with a sof tmax operation, we can calculate Ck based on Eq.4 as follows:
+Ck = sof tmax(finT WT θkWφkfin) (5) where Wθ and Wφ are the parameters of the embedding functions θ and φ, respectively. Rather than directly replacing the original Ak with Bk or Ck, we add them to it. The value of Bk and the parameters of θ and φ are initialized to 0. In this way, it can strengthen the flexibility of the model without degrading the original performance. The overall architecture of the adaptive graph convolu-
+ion layer is shown in Fig. 2. Except for the Ak, Bk and Ck introduced above, the kernel size of convolution (Kv) is set the same as before, i.e., 3. wk is the weighting function introduced in Eq. 1, whose parameter is Wk in Eq. 3. A residual connection, similar to [10], is added for each layer, which allows the layer to be inserted into any existing models without breaking its initial behavior. If the number of input channels is different than the number of output channels, a 1 × 1 convolution (orange box with dashed line in Fig. 2) is inserted in the residual path to transform the input to match the output in the channel dimension.
+[AGCN paper]
+
+
+[show image of a adaptive grpah convolution block]
+[show image of a adaptive grpah convolution blocks are arranged as a stack]
+
+
+
+
+
+
+Spatial embedding of pose using AGCN
+
+Adaptive Graph convolution
+
+The input poses along the video are processed in a Pose Backbone. The pose based input of VPN are the 3D human joint coordinates P ∈ R3×J×tp stacked along tp temporal dimension, where J is the number of skeleton joints. The Pose Backbone processes these 3D poses to compute pose features h∗ which are used further in the attention network for computing the spatio-temporal attention weights. They carry meaningful information in a compact way, so the proposed attention network can efficiently focus on salient action parts. For the Pose Backbone, we use GCNs to learn the spatial relationships between the 3D human joints to provide attention weights to the visual feature map (f ). We aim at exploiting the graphical structure of the 3D poses. In Fig. 4(I), we illustrate our GCN pose backbone (marked (A)). For each pose input Pt ∈ R3×J with J joints, we first construct a graph Gt(Pt,E) where E is the J × J weighted adjacency matrix: eij = ⎧⎪⎨ ⎪⎩ 0, if i = j α, if joint i and joint j are connected β, if joint i and joint j are disconnected Each graph Gt at time t is processed by a GCN to compute feature f + t: f+ t = D− 1 2 (E + I)D− 1 2 GtWt, (1) where Wt is the weight matrix and D is the diagonal degree matrix with Dii = Σj(Eij + Iij) its diagonal elements. For all t =1, 2, ..., tp, the GCN output features f + t are aggregated along time, resulting in a 3D tensor [f + 1 ,f+ 2 , ..., f + tp ]. Finally, the 3D pose tensor is combined with the original pose input by a residual connection followed by a set of convolutional operations. Now, the GCN pose backbone provides salient features h∗ because of its use of the graphical structure of the 3D joints.
+[VPN paper]
+
+The convolution for the temporal dimension is the same as ST-GCN, i.e., performing the Kt × 1 convolution on the C × T × N feature maps. Both the spatial GCN and temporal GCN are followed by a batch normalization (BN) layer and a ReLU layer. As shown in Fig. 3, one basic block is the combination of one spatial GCN (Convs), one temporal GCN (Convt) and an additional dropout layer with the drop rate set as 0.5. To stabilize the training, a residual connection is added for each block.
+[AGCN paper]
+
+The adaptive graph convolutional network (AGCN) is the stack of these basic blocks, as shown in Fig. 4. There are a total of 9 blocks. The numbers of output channels for each block are 64, 64, 64, 128, 128, 128, 256, 256 and 256. A data BN layer is added at the beginning to normalize the input data. A global average pooling layer is performed at the end to pool feature maps of different samples to the same size. The final output is sent to a sof tmax classifier to obtain the prediction.
+[AGCN paper]
+
+
+
+
+spatial embedding of RGB 
+
+
+Temporal embedding using LSTM
+
+
+
+Experiments : 
+
+We evaluate the effectiveness of our model for action classification. We consider four public datasets which are the popular datasets for ADL: NTU-60 [39], NTU120 [25], Toyota-Smarthome [8] and Northwestern-UCLA [51].
+
+
+To perform a head-to-head comparison with ST-GCN, our experiments are conducted on the same two large-scale action recognition datasets: NTU-RGBD [27] and KineticsSkeleton [12, 32]. First, since the NTU-RGBD dataset is smaller than the Kinetics-Skeleton dataset, we perform exhaustive ablation studies on it to examine the contributions of the proposed model components based on the recognition performance. Then, the final model is evaluated on both of the datasets to verify the generality and is compared with the other state-of-the-art approaches. The definitions of joints and their natural connections in the two datasets are shown in Fig. 6.
+[AGCN paper]
+
+[Human skeleton imaages of different data sets]
+
+
+Toyota-Smarthome
+(Smarthome) is a recent ADL dataset recorded in an apartment where 18 older subjects carry out tasks of daily living during a day. The dataset contains 16.1k video clips, 7 different camera views and 31 complex activities performed in a natural way without strong prior instructions. This dataset provides RGB data and 3D skeletons which are extracted from LCRNet [37]. For evaluation on this dataset, we follow cross-subject (CS)and cross-view (CV1 and CV2) protocols proposed in [8].
+[VPN paper]
+
+
+NTU-60 NTU-120
+(NTU-60 & NTU-120) NTU-60 is acquired with a Kinect v2 camera and consists of 56880 video samples with 60 activity classes. The activities were performed by 40 subjects and recorded from 80 viewpoints. For each frame, the dataset provides RGB, depth and a 25-joint skeleton of each subject in the frame. For evaluation, we follow the two protocols proposed in [39]: cross-subject (CS) and cross-view (CV). NTU-120 is a super-set of NTU-60 adding a lot of new similar actions. NTU-120 dataset contains 114k video clips of 106 distinct subjects performing 120 actions in a laboratory environment with 155 camera views. For evaluation, we follow a cr
+[VPN paper]
+
+NTU-RGBD: NTU-RGBD [27] is currently the largest and most widely used in-door-captured action recognition dataset, which contains 56,000 action clips in 60 action classes. The clips are performed by 40 volunteers in different age groups ranging from 10 to 35. Each action is captured by 3 cameras at the same height but from different horizontal angles: −45◦, 0◦, 45◦. This dataset provides 3D joint locations of each frame detected by Kinect depth sensors. There are 25 joints for each subject in the skeleton sequences, while each video has no more than 2 subjects. The original paper [27] of the dataset recommends two benchmarks: 1). Cross-subject (X-Sub): the dataset  in this benchmark is divided into a training set (40,320 videos) and a validation set (16,560 videos), where the actors in the two subsets are different. 2).Cross-view (X-View): the training set in this benchmark contains 37,920 videos that are captured by cameras 2 and 3, and the validation set contains 18,960 videos that are captured by camera 1. We follow this convention and report the top-1 accuracy on both benchmarks.
+[AGCN paper]
+
+
+
+Northwestern-UCLA
+(N-UCLA) is acquired simultaneously by three Kinect v1 cameras. The dataset consists of 1194 video samples with 10 activity classes. The activities were performed by 10 subjects, and recorded from three viewpoints. We performed experiments on N-UCLA using the cross-view (CV) protocol proposed in [51]: we trained our model on samples from two camera views and tested on the samples from the remaining view. For instance, the notation V 3 1,2 indicates that we trained on samples from view 1 and 2, and tested on samples from view 3.
+[VPN paper]
+
+
+implementation 
+
+
+Training   
+
+All experiments are conducted on the PyTorch deep learning framework [26]. Stochastic gradient descent (SGD) with Nesterov momentum (0.9) is applied as the optimization strategy. The batch size is 64. Cross-entropy is selected as the loss function to backpropagate gradients. The weight decay is set to 0.0001. For the NTU-RGBD dataset, there are at most two people in each sample of the dataset. If the number of bodies in the sample is less than 2, we pad the second body with 0. The max number of frames in each sample is 300. For samples with less than 300 frames, we repeat the samples until it reaches 300 frames. The learning rate is set as 0.1 and is divided by 10 at the 30th epoch and 40th epoch. The training process is ended at the 50th epoch. For the Kinetics-Skeleton dataset, the size of the input tensor of Kinetics is set the same as [32], which contains 150 frames with 2 bodies in each frame. We perform the same data-augmentation methods as in [32]. In detail, we randomly choose 150 frames from the input skeleton sequence and slightly disturb the joint coordinates with randomly chosen rotations and translations. The learning rate is also set as 0.1 and is divided by 10 at the 45th epoch and 55th epoch. The training process is ended at the 65th epoch.
+[AGCN paper]
+
+RGB embedding extractor based on ResNet50 model . frme rate , pretrinaed on ... network 
+
+
+Skeleton extractor : frequency 
+
+Hyperparamaeters for the AGCN layer 
+
+Temporal capturing usng LSTM Layer: Hyper parameters
+
+Classification layer params : 
+For classification, a global-average pooling layer followed by a dropout [46] of 0.3 and a softmax layer are added at the end of the recognition model for class prediction
+
+Model traning infra details 
+Our recognition model is trained with a 4-GPU machine where each GPU has 4 video clips in a mini-batch. Our model is trained for 30 epochs in total, with SGD optimizer having initial learning rate of 0.01 and decay rate of 0.1 after every 10 epochs. The trade off (λ1) and regularizer (λ2) parameters are set to 0.8 and 0.00001 respectively for all the experiments.
+[AGCN paper]
+
+Inference. For the recognition model, we perform fully convolutional inference in space as in [54]. The final classification is obtained by max-pooling the softmax scores
+
+
+
+
+Abblation study 
+
+We examine the effectiveness of the proposed components in two-stream adaptive graph convolutional network (2s-AGCN) in this section with the X-View benchmark on the NTU-RGBD dataset. The original performance of STGCN on the NTU-RGBD dataset is 88.3%. By using the rearranged learning-rate scheduler and the specially designed data preprocessing methods, it is improved to 92.7%, which is used as the baseline in the experiments. The detail is introduced in the supplementary material
+[AGCN paper]
+
+
+RGB compoenent:
+
+As introduced in Section 4.1, there are 3 types of graphs in the adaptive graph convolutional block, i.e., A, B and C. We manually delete one of the graphs and show their performance in Tab. 1. This table shows that adaptively learning the graph is beneficial for action recognition and that deleting any one of the three graphs will harm the performance. With all three graphs added together, the model obtains the best performance. We also test the importance of M used in the original ST-GCN. The result shows that given each connection, a weight parameter is important, which also proves the importance of the adaptive graph structure.
+[graph containing the performance of algorithm with and without the RGB block]
+[AGCN paper]
+
+LSTM compoenent
+
+
+AGCN block
+
+
+1. Validate different compoenents : 
+
+AGCN only + with AVG pooling
+AGCN + RGB + with AVG pooling
+AGCN only + LSTM
+AGCN + RGB + LSTM
+
+
+2. try with different graph convolutions
+AGCN
+Standard GCN 
+
+3. Different number of AGCN layers
+
+1,4,7,10
+
+Discussion on ablation study
+
+Qualitative analysis :
+GSOM / KMeans clusturing implementaton of the classfication 
+
+
+Comparison with the State-of-the-art
+
+We compare VPN to the state-of-the-art (SoA) on NTU-60, NTU-120, Smarthome and N-UCLA in table 5, 6 and 7. VPN outperforms on each of them. In Table 5 (at left), for input modality RGB+Poses, VPN improves the SoA [7] by up to 0.8% on NTU-60 even by using one-third parameters compared to [7]. The SoA using Poses only [40] yields classification accuracy near to VPN for cross-view protocol (with 0.1% difference) due to their robustness to view changes. However, the lack of appearance information restricts these methods [40,42] to disambiguate actions with similar visual appearance, thus resulting in lower accuracy for cross-subject protocol. We have also tested VPN with 3D ResNeXt-101 [14] on NTU-60 dataset. The results in Table 5 show that VPN can be adapted with other existing video backbones. Compared to the SoA results, the improvement by 3.9% and 4.9% (averaging over the protocols) on NTU-120 and Smarthome respectively are significant. It is worth noting that VPN improves further the classification of actions with similar appearance as compared to Separable STA [8]. For example, actions like clapping (+44.3%) and flicking hair (+19.1%) are now discriminated with better accuracy. In addition, the superior performance of VPN in cross-view protocol for both NTU-120 and Smarthome implies that it provides better view-adaptive characterization compared to all the prior methods. For N-UCLA which is a small-scale dataset, we pre-train the visual backbone with NTU-60 for a fair comparison with [4,7,8]. We also outperform the SoA [7] by 0.4% on this dataset.
+[VPN paper]
+
+
+We compare the final model with the state-of-the-art skeleton-based action recognition methods on both the NTU-RGBD dataset and Kinetics-Skeleton dataset. The results of these two comparisons are shown in Tab 3 and Tab 4, respectively. The methods used for comparison include the handcraft-feature-based methods [31, 8], RNNbased methods [6, 27, 22, 29, 33, 19, 20], CNN-based methods [21, 14, 13, 23, 18, 17] and GCN-based methods [32, 30]. Our model achieves state-of-the-art performance with a large margin on both of the datasets, which verifies the superiority of our model.
+[AGCN paper]
+
+[Table 3. Comparisons of the validation accuracy with state-of-theart methods on the NTU-RGBD dataset.]
+
+[Table 4. Comparisons of the validation accuracy with state-of-theart methods on the Kinetics-Skeleton dataset.]
+
+
+Conclusion
+This paper addresses the challenges of ADL classification. We have proposed a novel Video-Pose Network VPN which provides an accurate video-pose embedding. We show that the embedding along with attention network yields a more discriminative feature map for action classification. The attention network leverages the topology of the human joints and with the coupler provides precise spatio-temporal attention weights along the video. Our recognition model outperforms the state of-the-art results for action classification on 4 public datasets. This is a first step towards combining RGB and Pose through an explicit embedding. A future perspective of this work is to exploit this embedding even in case of noisy 3D poses in order to also boost action recognition for internet videos. This embedding could even help to refine these noisy 3D poses in a weakly supervised manner.
+[VPN paper]
+
+
+In this work, we propose a novel adaptive graph convolutional neural network (2s-AGCN) for skeleton-based action recognition. It parameterizes the graph structure of the skeleton data and embeds it into the network to be jointly learned and updated with the model. This data-driven approach increases the flexibility of the graph convolutional network and is more suitable for the action recognition task. Furthermore, the traditional methods always ignore or underestimate the importance of second-order information of skeleton data, i.e., the bone information. In this work, we propose a two-stream framework to explicitly employ this type of information, which further enhances the performance. The final model is evaluated on two large-scale action recognition datasets, NTU-RGBD and Kinetics, and it achieves the state-of-the-art performance on both of them.
+[AGCN paper]
+
+
+Acknowledgement 
+Grant 
+model ttraining infrastructure
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

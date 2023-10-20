@@ -1,0 +1,20 @@
+[ Sun Oct  8 14:20:03 2023 ] using warm up, epoch: 0
+[ Sun Oct  8 14:21:10 2023 ] using warm up, epoch: 0
+[ Sun Oct  8 14:21:11 2023 ] Parameters:
+{'work_dir': './work_dir/smarthome/xview1/agcn_rgb_lstm_joint', 'model_saved_name': './runs/smarthome_cv1_agcn_rgb_lstm_joint', 'config': './config/smarthome/cross_view1/train_rgb_lstm.yaml', 'phase': 'train', 'save_score': False, 'seed': 1, 'log_interval': 100, 'save_interval': 2, 'eval_interval': 5, 'print_log': True, 'show_topk': [1, 5], 'feeder': 'feeders.feeder.Feeder', 'num_worker': 32, 'train_feeder_args': {'data_path': './data/smarthome/xview1/train_data_joint.npy', 'label_path': './data/smarthome/xview1/train_label.pkl', 'debug': False, 'random_choose': False, 'random_shift': False, 'random_move': False, 'window_size': -1, 'normalization': False}, 'test_feeder_args': {'data_path': './data/smarthome/xview1/val_data_joint.npy', 'label_path': './data/smarthome/xview1/val_label.pkl'}, 'train_rgb_feeder_args': {'data_path': './data/smarthome/xview1/train_data_rgb_joint.npy', 'label_path': './data/smarthome/xview1/train_label.pkl', 'debug': False, 'random_choose': False, 'random_shift': False, 'random_move': False, 'window_size': -1, 'normalization': False}, 'test_rgb_feeder_args': {'data_path': './data/smarthome/xview1/val_data_rgb_joint.npy', 'label_path': './data/smarthome/xview1/val_label.pkl'}, 'model': 'model.rgb_lstm_agcn.Model', 'model_args': {'num_class': 31, 'num_point': 15, 'num_person': 1, 'graph': 'graph.smarthome.Graph', 'graph_args': {'labeling_mode': 'spatial'}}, 'weights': None, 'ignore_weights': [], 'base_lr': 0.1, 'step': [30, 40], 'device': [0, 1], 'optimizer': 'SGD', 'nesterov': True, 'batch_size': 16, 'test_batch_size': 16, 'start_epoch': 0, 'num_epoch': 60, 'weight_decay': 0.0001, 'only_train_part': False, 'only_train_epoch': 0, 'warm_up_epoch': 0}
+
+[ Sun Oct  8 14:21:25 2023 ] Training epoch: 1
+[ Sun Oct  8 14:28:28 2023 ] 	Mean training loss: 2.2212.
+[ Sun Oct  8 14:28:28 2023 ] 	Time consumption: [Data]52%, [Network]47%
+[ Sun Oct  8 14:28:38 2023 ] Eval epoch: 1
+[ Sun Oct  8 14:31:21 2023 ] 	Mean test loss of 1 batches: 1.126443862915039.
+[ Sun Oct  8 14:31:21 2023 ] 	Top1: 50.00%
+[ Sun Oct  8 14:31:21 2023 ] 	Top5: 100.00%
+[ Sun Oct  8 14:31:26 2023 ] Training epoch: 2
+[ Sun Oct  8 14:36:51 2023 ] 	Mean training loss: 0.6643.
+[ Sun Oct  8 14:36:51 2023 ] 	Time consumption: [Data]53%, [Network]47%
+[ Sun Oct  8 14:37:01 2023 ] Eval epoch: 2
+[ Sun Oct  8 14:39:34 2023 ] 	Mean test loss of 1 batches: 0.7472397089004517.
+[ Sun Oct  8 14:39:34 2023 ] 	Top1: 50.00%
+[ Sun Oct  8 14:39:34 2023 ] 	Top5: 100.00%
+[ Sun Oct  8 14:39:39 2023 ] Training epoch: 3

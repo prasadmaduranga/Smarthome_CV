@@ -178,7 +178,7 @@ if __name__ == '__main__':
                         default=None)
     parser.add_argument('--out_folder', default='./data/smarthome/')
 
-    benchmark = ['xsub']
+    benchmark = ['xview1', 'xview2']
     part = ['train', 'val']# 'test']
     arg = parser.parse_args()
     print('raw_path: ', arg.data_path)

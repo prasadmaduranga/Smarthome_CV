@@ -32,6 +32,7 @@ test_rgb_feeder_args:
 
 # model
 model: model.rgb_lstm_agcn.Model
+weights: ./runs/smarthome_cs_agcn_rgb_lstm_joint-2-3.pt
 model_args:
   num_class: 31
   num_point: 15

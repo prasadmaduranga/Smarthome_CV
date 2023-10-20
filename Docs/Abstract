@@ -1,0 +1,62 @@
+Abstract
+
+Brief overview of the research, methodology, and key findings.
+1. Introduction
+
+Background and motivation for the study.
+Overview of the main contributions.
+2. Related Work
+
+2.1. Human Activity Recognition (HAR) Datasets
+Overview of available datasets.
+2.2. Existing HAR Algorithms
+2.2.1. Skeleton-Based HAR
+2.2.2. RGB Video-Based HAR
+2.3. Multi-Modal HAR Algorithms
+2.3.1. Fusion-Based Multi-Modal HAR
+2.3.2. Model-Based Multi-Modal HAR
+3. Graph Convolution
+
+3.1. Graph Construction
+Methodology and significance.
+3.2. Graph Convolution Techniques
+Detailed explanation and its relevance to HAR.
+4. Long Short-Term Memory (LSTM) and Transformers
+
+Overview and relevance to the study.
+5. Multi-Modal Data Fusion
+
+Techniques and importance in the context of HAR.
+6. Psychological Context: Separation of Spatiality and Temporality
+
+Explanation and its significance in HAR.
+7. Proposed Method
+
+7.1. Spatial and Temporal Feature Extraction
+Techniques and methodologies used.
+7.2. Proposed Architecture
+Detailed architecture and its explanation.
+8. Datasets
+
+8.1. Toyota Smart Home Dataset
+Overview and relevance to the study.
+8.2. NTU-RGBD Dataset
+Overview and its significance.
+9. Experiments
+
+9.1. Training Details
+Parameters, techniques, and tools used.
+9.2. Comparative Analysis
+Comparison with similar algorithms and methodologies.
+10. Conclusion
+
+Summary of findings, contributions, and future work recommendations.
+This refined outline should provide a clearer structure for your paper, making it easier for readers to follow your research and understand its significance.
+
+
+
+
+
+
+
+

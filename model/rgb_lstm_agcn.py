@@ -118,13 +118,13 @@ class GCN_unit(nn.Module):
 
     def forward(self, x):
         # x = self.tcn1(self.gcn1(x)) + self.residual(x)
-        # x = self.gcn1(x)
-        # return self.relu(x)
-        # residual = x
         x = self.gcn1(x)
-        x = self.dropout(x)
-        # x += residual
         return self.relu(x)
+        # residual = x
+        # x = self.gcn1(x)
+        #
+        # # x += residual
+        # return self.relu(x)
 
 
 class Model(nn.Module):
@@ -148,20 +148,23 @@ class Model(nn.Module):
         self.l5 = GCN_unit(64, 128, A, stride=2)
         self.l6 = GCN_unit(128, 128, A)
         self.l7 = GCN_unit(128, 128, A)
-        self.l8 = GCN_unit(128, 256, A, stride=2)
-        self.l9 = GCN_unit(256, 256, A)
-        self.l10 = GCN_unit(256, 256, A)
+        # self.l8 = GCN_unit(128, 256, A, stride=2)
+        # self.l9 = GCN_unit(256, 256, A)
+        # # self.l10 = GCN_unit(256, 256, A)
+        # self.l10 = GCN_unit(256, 128, A)
 
         self.cnn1 = nn.Conv1d(1000, 512, 1)
         self.cnn2 = nn.Conv1d(512, 256, 1)
-        self.cnn3 = nn.Conv1d(256, 45, 1)
+        self.cnn3 = nn.Conv1d(256, 128, 1)
+
+
 
         self.dropout1 = nn.Dropout(p=0.5)
         self.dropout2 = nn.Dropout(p=0.5)
 
-        self.lstm = nn.LSTM(256*num_point+256, 256, batch_first=True)
+        self.lstm = nn.LSTM(128*num_point+128, 128, batch_first=True)
 
-        self.fc = nn.Linear(256, num_class)
+        self.fc = nn.Linear(128, num_class)
         nn.init.normal_(self.fc.weight, 0, math.sqrt(2. / num_class))
         bn_init(self.data_bn_x1, 1)
         bn_init(self.data_bn_x2, 1)
@@ -180,14 +183,14 @@ class Model(nn.Module):
         x1 = self.l5(x1)
         x1 = self.l6(x1)
         x1 = self.l7(x1)
-        x1 = self.l8(x1)
-        x1 = self.l9(x1)
-        x1 = self.l10(x1)
+        # x1 = self.l8(x1)
+        # x1 = self.l9(x1)
+        # x1 = self.l10(x1)
 
         # N*M,C,T,V
         x1 = x1.permute(0, 1, 3, 2)
         x1 = x1.contiguous().view(N, M,-1, T).mean(1)
-        x1 = x1.permute(0, 2,1).contiguous() # 32,4000,3840
+        x1 = x1.permute(0, 2,1).contiguous() # 32,4000,1920
         # try max pooling or average pooling to reduce the dimension
 
 
@@ -198,14 +201,17 @@ class Model(nn.Module):
         x2 = F.relu(self.cnn1(x2))
         x2 = self.dropout1(x2)
         x2 = F.relu(self.cnn2(x2))
-        x2 = x2.permute(0, 2, 1).contiguous() # 32,4000,256
+        x2 = self.dropout2(x2)
+        x2 = F.relu(self.cnn3(x2))
+        x2 = x2.permute(0, 2, 1).contiguous() # 32,4000,128
 
         x = torch.cat((x1, x2), dim=2)
 
-
-
         x, (h_n, c_n) = self.lstm(x)
         x = x[:, -1, :]
+
+
+
 
         return self.fc(x)
 

@@ -62,5 +62,5 @@ train_rgb_feeder_args:
   window_size: -1
 warm_up_epoch: 0
 weight_decay: 0.0001
-weights: null
+weights: ./runs/smarthome_cs_agcn_rgb_lstm_joint-2-3.pt
 work_dir: ./work_dir/smarthome/xsub/agcn_rgb_lstm_joint
